@@ -28,16 +28,38 @@ public class CartHandle : MonoBehaviour
         }
     }
 
+    Vector3 debugA;
+    Vector3 debugB;
+    private void pull(Transform hand)
+    {
+        Vector3 projection = new Vector3(
+            hand.GetComponent<RectTransform>().position.x,
+            hand.GetComponent<RectTransform>().position.y,
+            gameObject.transform.position.z - Camera.main.transform.position.z);
+
+        Vector3 handle_root = calculateHandleRoot(false);
+        Vector3 diff = Camera.main.ScreenToWorldPoint(projection) - handle_root;
+
+        debugA = handle_root;
+        debugB = handle_root + diff;
+        diff *= Time.deltaTime;
+
+        GetComponent<Rigidbody>().AddForceAtPosition(diff, handle_root, ForceMode.Impulse);
+
+        Debug.DrawRay(handle_root, diff, Color.yellow, 1);
+    }
+
     private Vector3 calculateHandleRoot(bool right_hand)
     {
         float mod = 1;
         if (!right_hand)
             mod *= -1;
         Vector3 offset = new Vector3(mod * HANDLE_RADIUS, 0, 0);
-        offset = Quaternion.AngleAxis(-transform.localRotation.eulerAngles.z, Vector3.forward) * offset;
-        return offset;
+        offset = Quaternion.AngleAxis(-transform.localRotation.eulerAngles.x, Vector3.forward) * offset;
+        return transform.position + offset;
     }
 
+    // Interface
     public void grab(Transform grabber, int hand_id)
     {
         switch (hand_id)
@@ -63,18 +85,11 @@ public class CartHandle : MonoBehaviour
         }
     }
 
-    void pull(Transform hand)
-    {
-        Vector3 projection = new Vector3(
-            hand.GetComponent<RectTransform>().position.x,
-            hand.GetComponent<RectTransform>().position.y,
-            gameObject.transform.position.z - Camera.main.transform.position.z);
-
-        Vector3 handle_root = calculateHandleRoot(false);
-
-        Vector3 diff = Camera.main.ScreenToWorldPoint(projection) - handle_root;
-        GetComponent<Rigidbody>().AddForceAtPosition(diff, handle_root, ForceMode.Impulse);
-
-        Debug.DrawRay(gameObject.transform.position, diff, Color.white, Time.fixedDeltaTime);
-    }
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.yellow;
+    //    Gizmos.DrawSphere(debugA, 0.2f);
+    //    Gizmos.color = Color.green;
+    //    Gizmos.DrawSphere(debugB, 0.2f);
+    //}
 }
