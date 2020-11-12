@@ -47,7 +47,6 @@ public class Prop : MonoBehaviour
     public void grab(Transform grabber)
     {
         hand = grabber;
-
     }
     public void release()
     {

@@ -9,8 +9,10 @@ public class Hand : MonoBehaviour
     const float MV_FRICTION = 1f;
     const float RADIUS = 0.8f;
 
-    GameObject grabbed_object;
-    bool locked = false;
+    [SerializeField] int id = 0; // 0 = left, 1 = right
+
+    GameObject held_prop;
+    GameObject held_bar;
 
     // Update is called once per frame
     void Update()
@@ -27,11 +29,11 @@ public class Hand : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(locked)
-        {
-            gameObject.GetComponent<Rigidbody2D>().velocity *= 0;
-            return;
-        }
+       //if(held_bar)
+       //{
+       //    gameObject.GetComponent<Rigidbody2D>().velocity *= 0;
+       //    return;
+       //}
 
         applyFriction();
 
@@ -89,39 +91,39 @@ public class Hand : MonoBehaviour
         LayerMask lm = 0;
         //lm |= 1 << 9;
         lm = LayerMask.GetMask("grabbable");
-
+        Debug.DrawRay(Camera.main.transform.position, ray.direction * 30, Color.white, 3);
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, lm))
         {
             GameObject other = hit.transform.gameObject;
-
+            Debug.Log(other.gameObject.name);
             //if(other.GetComponent<Head>())
             //{
             //    // You have just grabbed your own head
             //}
             if (other.GetComponent<Prop>() != null)
             {
-                grabbed_object = other;
+                held_prop = other;
                 other.GetComponent<Prop>().grab(gameObject.transform);
             }
-            //if (other.GetComponent<PumpBar>() != null)
-            //{
-            //    locked = true;
-            //    gameObject.transform.parent = other.transform;
-            //    other.GetComponent<PumpBar>().grab(gameObject.transform);
-            //}
+            if (other.GetComponent<CartHandle>())
+            {
+                held_bar = other;
+                // gameObject.transform.parent = other.transform;
+                other.GetComponent<CartHandle>().grab(gameObject.transform, id);
+            }
         }
     }
     void release()
     {
-        if(grabbed_object == null)
+        if (held_prop != null)
         {
-            return;
+            held_prop.GetComponent<Prop>().release();
+            held_prop = null;
         }
-
-        if (grabbed_object.GetComponent<Prop>() != null)
+        if (held_bar != null)
         {
-            grabbed_object.GetComponent<Prop>().release();
+            held_bar.GetComponent<CartHandle>().release(id);
+            held_bar = null;
         }
-        grabbed_object = null;
     }
 }
