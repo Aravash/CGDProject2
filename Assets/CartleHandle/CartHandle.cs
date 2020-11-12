@@ -34,7 +34,7 @@ public class CartHandle : MonoBehaviour
         if (!right_hand)
             mod *= -1;
         Vector3 offset = new Vector3(mod * HANDLE_RADIUS, 0, 0);
-        offset = Quaternion.AngleAxis(-transform.localRotation.eulerAngles.x, Vector3.forward) * offset;
+        offset = Quaternion.AngleAxis(-transform.localRotation.eulerAngles.z, Vector3.forward) * offset;
         return offset;
     }
 
@@ -50,7 +50,19 @@ public class CartHandle : MonoBehaviour
                 break;
         }
     }
-    
+    public void release(int hand_id)
+    {
+        switch (hand_id)
+        {
+            case 0:
+                hand_L = null;
+                break;
+            case 1:
+                hand_R = null;
+                break;
+        }
+    }
+
     void pull(Transform hand)
     {
         Vector3 projection = new Vector3(

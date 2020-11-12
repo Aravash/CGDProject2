@@ -29,11 +29,11 @@ public class Hand : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(held_bar)
-        {
-            gameObject.GetComponent<Rigidbody2D>().velocity *= 0;
-            return;
-        }
+       //if(held_bar)
+       //{
+       //    gameObject.GetComponent<Rigidbody2D>().velocity *= 0;
+       //    return;
+       //}
 
         applyFriction();
 
@@ -108,7 +108,7 @@ public class Hand : MonoBehaviour
             if (other.GetComponent<CartHandle>())
             {
                 held_bar = other;
-                gameObject.transform.parent = other.transform;
+                // gameObject.transform.parent = other.transform;
                 other.GetComponent<CartHandle>().grab(gameObject.transform, id);
             }
         }
@@ -122,7 +122,7 @@ public class Hand : MonoBehaviour
         }
         if (held_bar != null)
         {
-            held_bar.GetComponent<Prop>().release();
+            held_bar.GetComponent<CartHandle>().release(id);
             held_bar = null;
         }
     }
