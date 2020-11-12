@@ -5,7 +5,7 @@ using UnityEngine;
 public class Hand : MonoBehaviour
 {
     const float MV_MAX_SPEED = 5f;
-    const float MV_ACCEL = 100f;
+    const float MV_ACCEL = 500f;
     const float MV_FRICTION = 1f;
     const float RADIUS = 0.8f;
 

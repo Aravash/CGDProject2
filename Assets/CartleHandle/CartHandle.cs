@@ -8,6 +8,8 @@ public class CartHandle : MonoBehaviour
     const float HANDLE_RADIUS = 0.65f;
     Transform hand_L;
     Transform hand_R;
+    const float MAX_PULL = 1;
+    const float PULL_MULTIPLIER = 2;
 
     // Start is called before the first frame update
     void Start()
@@ -40,13 +42,18 @@ public class CartHandle : MonoBehaviour
         Vector3 handle_root = calculateHandleRoot(false);
         Vector3 diff = Camera.main.ScreenToWorldPoint(projection) - handle_root;
 
+        if (diff.magnitude > MAX_PULL)
+            diff *= MAX_PULL / diff.magnitude;
+        diff *= PULL_MULTIPLIER;
+
         debugA = handle_root;
         debugB = handle_root + diff;
+
+        Debug.DrawRay(handle_root, diff, Color.green, 1);
         diff *= Time.deltaTime;
+        Debug.DrawRay(handle_root, diff, Color.yellow, 1);
 
         GetComponent<Rigidbody>().AddForceAtPosition(diff, handle_root, ForceMode.Impulse);
-
-        Debug.DrawRay(handle_root, diff, Color.yellow, 1);
     }
 
     private Vector3 calculateHandleRoot(bool right_hand)
