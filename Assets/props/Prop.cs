@@ -5,8 +5,7 @@ using UnityEngine;
 public class Prop : MonoBehaviour
 {
     const float THROW_SPEED_MODIFIER = 75f; // Should match the ratio of camera clipping plane to prop depth
-
-    bool untouched = true;
+    
     bool grounded;
 
     Transform hand;
@@ -25,7 +24,13 @@ public class Prop : MonoBehaviour
     
     private void FixedUpdate()
     {
-        if(hand != null)
+        if(grounded)
+        {
+            //float vel = GetComponent<Rigidbody>().velocity;
+            //vel.x = TODO: fetch cart speed
+            //GetComponent<Rigidbody>().velocity = vel;
+        }
+        if (hand != null)
         {
             Vector3 projection = new Vector3(
                 hand.GetComponent<RectTransform>().position.x,
@@ -47,12 +52,14 @@ public class Prop : MonoBehaviour
     public void release()
     {
         hand = null;
-        untouched = false;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         // if(collision.collider.GetComponent<Head>() != null)
-        //  collision.collider.GetComponent<Head>().bonk(dmg)
+        //  collision.collider.GetComponent<Head>().bonk(collision.impulse.magnitude);
+
+        // if(collision.collider.tag == "conveyor")
+        //  grounded = true;
     }
 }
