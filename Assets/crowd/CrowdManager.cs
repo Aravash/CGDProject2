@@ -11,6 +11,12 @@ public class CrowdManager : MonoBehaviour
     int num_onlookers;
     float event_cooldown;
 
+    float suspicion = 0;
+    const float SUSP_DECAY = 0.2f;
+    const float SUSP_LIMIT = 0.2f;
+    const float SUSP_RATE = 1f;
+    const float SUSP_THRESHOLD = 1f;
+
     private void Awake()
     {
         if(_i != null)
@@ -89,4 +95,23 @@ public class CrowdManager : MonoBehaviour
         return u * fac;
     }
 
+    void suspicionCheck()
+    {
+        // TODO: fetch cart pseudovelocity
+        float pumpspeed = 1;
+        if (pumpspeed < SUSP_THRESHOLD)
+        {
+            suspicion -= SUSP_DECAY * Time.deltaTime;
+            return;
+        }
+
+        // increase suspicion (inversely proportional to pumpspeed)
+        float susp_multiplier = pumpspeed == 0 ? 1 : SUSP_THRESHOLD / pumpspeed;
+        suspicion += SUSP_RATE * Time.deltaTime * susp_multiplier;
+
+        if(suspicion > SUSP_LIMIT)
+        {
+            // TODO: GAME OVER
+        }
+    }
 }
