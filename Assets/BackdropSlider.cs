@@ -16,10 +16,6 @@ public class BackdropSlider : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.D))
-        {
-            scrollBackDrop(0.5f);
-        }
     }
     
     /*
