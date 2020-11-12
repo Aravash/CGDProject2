@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,7 +18,6 @@ public class HandleCarPosManager : MonoBehaviour
     {
         if (oldpos != transform.position)
         {
-            Debug.Log("pos changed");
             backDrop.scrollBackDrop(
                 Vector2.Distance(oldpos, transform.position));
             
