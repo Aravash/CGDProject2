@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Prop : MonoBehaviour
 {
-    const float THROW_SPEED_MODIFIER = 1; // Should match the ratio of camera clipping plane to prop depth
+    const float THROW_SPEED_MODIFIER = 75f; // Should match the ratio of camera clipping plane to prop depth
 
     bool untouched = true;
     bool grounded;
@@ -21,25 +21,31 @@ public class Prop : MonoBehaviour
 
     private void Update()
     {
+    }
+    
+    private void FixedUpdate()
+    {
         if(hand != null)
         {
             Vector3 projection = new Vector3(
                 hand.GetComponent<RectTransform>().position.x,
                 hand.GetComponent<RectTransform>().position.y,
-                gameObject.transform.position.z - Camera.main.transform.position.z);
-            
-            gameObject.transform.position = Camera.main.ScreenToWorldPoint(projection); ;
+                //gameObject.transform.position.z - Camera.main.transform.position.z);
+                -Camera.main.transform.position.z);
+            Vector3 diff = Camera.main.ScreenToWorldPoint(projection) - gameObject.transform.position;
+            GetComponent<Rigidbody>().AddForce(diff, ForceMode.Impulse);
+
+            Debug.DrawRay(gameObject.transform.position, diff, Color.white, Time.fixedDeltaTime);
         }
-        //gameObject.transform.position = Camera.main.ScreenToWorldPoint(projection);
     }
 
     public void grab(Transform grabber)
     {
         hand = grabber;
+
     }
     public void release()
     {
-        GetComponent<Rigidbody>().velocity = transform.parent.GetComponent<Rigidbody2D>().velocity;
         hand = null;
         untouched = false;
     }

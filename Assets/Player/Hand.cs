@@ -15,9 +15,13 @@ public class Hand : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
-            grab(); 
+            grab();
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            release();
         }
     }
 
@@ -106,5 +110,18 @@ public class Hand : MonoBehaviour
             //    other.GetComponent<PumpBar>().grab(gameObject.transform);
             //}
         }
+    }
+    void release()
+    {
+        if(grabbed_object == null)
+        {
+            return;
+        }
+
+        if (grabbed_object.GetComponent<Prop>() != null)
+        {
+            grabbed_object.GetComponent<Prop>().release();
+        }
+        grabbed_object = null;
     }
 }
