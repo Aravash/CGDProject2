@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class BackdropSlider : MonoBehaviour
 {
-
+    const float ACCEL_MULTIPLIER = 0.6f;
+    const float FRICTION = 0.4f;
     private Renderer renderer;
+    float speed = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -13,18 +15,43 @@ public class BackdropSlider : MonoBehaviour
         renderer = GetComponent<Renderer>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-    }
-    
-    /*
-     * Speed should be the distance between the handlebar's
-     * left hand's position last frame and its position this frame
-     */
-    public void scrollBackDrop(float speed)
-    {
+        applyFriction();
         float tempx = renderer.material.mainTextureOffset.x;
         renderer.material.mainTextureOffset = new Vector2(tempx += speed * Time.deltaTime, 0);
+        //Debug.Log("SPEED: " + speed);
+    }
+
+    // Accel value is based on the cart handle's rotation delta
+    float debug_high_accel = 0;
+    public void accelerate(float accel)
+    {
+        if (Mathf.Abs(accel) <= 0)
+            return;
+        speed += accel * ACCEL_MULTIPLIER;
+        if(accel > debug_high_accel)
+        {
+            debug_high_accel = accel;
+            Debug.Log("ACCEL: " + debug_high_accel);
+        }
+    }
+
+    private void applyFriction()
+    {
+        if (speed < 0.0001)
+        {
+            speed = 0;
+            return;
+        }
+
+        float drop = speed * FRICTION * Time.deltaTime;
+
+        float newspeed = speed - drop;
+        if (newspeed < 0)
+            newspeed = 0;
+        newspeed /= speed;
+
+        speed *= newspeed;
     }
 }
