@@ -6,17 +6,18 @@ using UnityEngine;
 public class CartHandle : MonoBehaviour
 {
     const float HANDLE_RADIUS = 0.65f;
-    Transform hand_L;
-    Transform hand_R;
     const float MAX_PULL = 1;
     const float PULL_MULTIPLIER = 2;
-
-    // Start is called before the first frame update
+    Transform hand_L;
+    Transform hand_R;
+    float old_rot;
+    BackdropSlider backdrop;
+    
     void Start()
     {
-        
+        old_rot = transform.rotation.x;
+        backdrop = FindObjectOfType<BackdropSlider>();
     }
-   
 
     private void FixedUpdate()
     {
@@ -28,6 +29,10 @@ public class CartHandle : MonoBehaviour
         {
             pull(hand_R);
         }
+        // Control the background
+        float delta = Mathf.Abs(transform.rotation.x - old_rot);
+        backdrop.accelerate(delta);
+        old_rot = transform.rotation.x;
     }
 
     Vector3 debugA;
