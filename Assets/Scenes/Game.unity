@@ -2116,8 +2116,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48587dbacfe004e46b9ce480722ee3d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvasRect: {fileID: 1360463620}
+  cam: {fileID: 1849851012}
   propMinSpawnDelay: 3
-  propMaxSpanDelay: 6
+  propMaxSpawnDelay: 6
+  indicatorHeightPos: -155
+  propHeightDelay: 10
 --- !u!65 &1274703070
 BoxCollider:
   m_ObjectHideFlags: 0

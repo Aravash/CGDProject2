@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class PropSpawner : MonoBehaviour
 {
-    // Show visual indicator of prop drop locator
+    public RectTransform canvasRect;
+    public Camera cam;
 
     public float propMinSpawnDelay;
-    public float propMaxSpanDelay;
+    public float propMaxSpawnDelay;
+    public float indicatorHeightPos;
+    public float propHeightDelay;
 
     private BoxCollider spawnPlaneCol;
     private float timer;
@@ -17,7 +20,7 @@ public class PropSpawner : MonoBehaviour
     {
         spawnPlaneCol = GetComponent<BoxCollider>();
         timer = 0;
-        nextPropDelay = newRndDelay();
+        nextPropDelay = NewRndDelay();
     }
     
     void Update()
@@ -26,27 +29,44 @@ public class PropSpawner : MonoBehaviour
 
         if (timer >= nextPropDelay)
         {
-            //Debug.Log("Spawned new prop after " + timer + " seconds");
             timer = 0;
-            nextPropDelay = newRndDelay();
-            SpawnProp();
+            nextPropDelay = NewRndDelay();
+
+            // Generate new prop position
+            float spawnPlaneLPos = spawnPlaneCol.bounds.min.x;
+            float spawnPlaneRPos = spawnPlaneCol.bounds.max.x;
+            Vector3 newPropPos = new Vector3(Random.Range(spawnPlaneLPos, spawnPlaneRPos), transform.position.y);
+
+            SpawnIncomingIndicator(newPropPos);
+            SpawnProp(newPropPos);
         }
     }
 
-    float newRndDelay()
+    float NewRndDelay()
     {
-        return Random.Range(propMinSpawnDelay, propMaxSpanDelay); ;
+        return Random.Range(propMinSpawnDelay, propMaxSpawnDelay);
     }
 
-    void SpawnProp()
+    void SpawnProp(Vector3 newPropPos)
     {
-        GameObject newProp = Instantiate((GameObject)Resources.Load("props/ExampleProp", typeof(GameObject)));
-
-        float spawnPlaneLPos = spawnPlaneCol.bounds.min.x;
-        float spawnPlaneRPos = spawnPlaneCol.bounds.max.x;
-        Vector3 newPropPos = new Vector3(Random.Range(spawnPlaneLPos, spawnPlaneRPos), transform.position.y);
-
-        newProp.transform.position = newPropPos;
+        GameObject newProp = Instantiate(Resources.Load("props/ExampleProp")) as GameObject;
+        Vector3 heightenedNewPropPos = new Vector3(newPropPos.x, newPropPos.y + propHeightDelay, newPropPos.z);
+        newProp.transform.position = heightenedNewPropPos;
         newProp.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
+    }
+
+    void SpawnIncomingIndicator(Vector3 newPropPos)
+    {
+        GameObject newIndicator = Instantiate(Resources.Load("props/Prop Incoming Indicator")) as GameObject;
+        newIndicator.transform.SetParent(canvasRect.transform, false);
+
+        RectTransform newIndicatorRect = newIndicator.GetComponent<RectTransform>();
+
+        Vector2 viewportPosition = cam.WorldToViewportPoint(newPropPos);
+        Vector2 onScreenPosition = new Vector2(
+            (viewportPosition.x * canvasRect.sizeDelta.x) - (canvasRect.sizeDelta.x * 0.5f),
+            (viewportPosition.y * canvasRect.sizeDelta.y) - (canvasRect.sizeDelta.y * 0.5f) + indicatorHeightPos);
+
+        newIndicatorRect.anchoredPosition = onScreenPosition;
     }
 }
