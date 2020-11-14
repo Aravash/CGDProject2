@@ -48,8 +48,6 @@ public class BackdropSlider : MonoBehaviour
         newspeed /= speed;
 
         speed *= newspeed;
-
-        Debug.Log("SPEED: " + speed);
     }
 
     public float getSpeed()
