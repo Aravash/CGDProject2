@@ -7,6 +7,8 @@ public class Head : MonoBehaviour
     const float MV_ACCEL = 500f;
     const float MV_FRICTION = 1f;
     
+    [SerializeField] private bool IOwnAController = true;
+    
     [SerializeField] int id = 0; // 0 = left, 1 = right
 
     private void FixedUpdate()
@@ -15,20 +17,23 @@ public class Head : MonoBehaviour
 
         // Fetch user directional input
         Vector2 wish_dir = new Vector2(0, 0);
-        /*
-         if (Input.GetKey("right"))
-            wish_dir.x++;
-        if (Input.GetKey("left"))
-            wish_dir.x--;
-        if (Input.GetKey("up"))
-            wish_dir.y++;
-        if (Input.GetKey("down"))
-            wish_dir.y--;
-        wish_dir.Normalize();
-        */
-        
-        wish_dir.x += Input.GetAxis("RHorizontal" + id);
-        wish_dir.y += Input.GetAxis("RVertical" + id);
+        if (IOwnAController)
+        {
+            wish_dir.x += Input.GetAxis("RHorizontal" + id);
+            wish_dir.y += Input.GetAxis("RVertical" + id);
+        }
+        else
+        {
+            if (Input.GetKey("right"))
+                wish_dir.x++;
+            if (Input.GetKey("left"))
+                wish_dir.x--;
+            if (Input.GetKey("up"))
+                wish_dir.y++;
+            if (Input.GetKey("down"))
+                wish_dir.y--;
+            wish_dir.Normalize();
+        }
 
         // Convert input to movement
         Vector2 acceleration = wish_dir;

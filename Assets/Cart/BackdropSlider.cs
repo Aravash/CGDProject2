@@ -9,18 +9,34 @@ public class BackdropSlider : MonoBehaviour
     private new Renderer renderer;
     float speed = 0;
 
+    [SerializeField] private GameObject hazardObj;
+    private Vector3 hazardSpawnPos;
+    private HazardMove hazard = null;
+    private float maxSpawnTimer = 3.0f;
+    private float spawnTimer = 3.0f;
+
     // Start is called before the first frame update
     void Start()
     {
         renderer = GetComponent<Renderer>();
+        hazardSpawnPos = transform.GetChild(0).transform.position;
     }
 
     private void Update()
     {
         applyFriction();
         float tempx = renderer.material.mainTextureOffset.x;
-        renderer.material.mainTextureOffset = new Vector2(tempx += speed * Time.deltaTime, 0);
-        //Debug.Log("SPEED: " + speed);
+        float change = tempx += speed * Time.deltaTime;
+        renderer.material.mainTextureOffset = new Vector2(change, 0);
+        if (!hazard)
+        {
+            if (spawnTimer <= 0)
+            {
+            spawnTimer = maxSpawnTimer;
+            }
+            else spawnTimer -= change;
+        }
+        else hazard.Move(change);
     }
 
     // Accel value is based on the cart handle's rotation delta

@@ -18,6 +18,9 @@
           <e p="Head.cs" t="Include" />
         </e>
         <e p="props" t="Include">
+          <e p="Hazard" t="Include">
+            <e p="HazardMove.cs" t="Include" />
+          </e>
           <e p="Prop.cs" t="Include" />
         </e>
       </e>
