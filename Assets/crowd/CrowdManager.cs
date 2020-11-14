@@ -34,6 +34,7 @@ public class CrowdManager : MonoBehaviour
     {
         backdrop = FindObjectOfType<BackdropSlider>();
         susp_bar = GameObject.Find("Susp_bar").GetComponent<Slider>();
+        susp_bar.maxValue = SUSP_LIMIT;
     }
     
     void Update()
@@ -112,7 +113,7 @@ public class CrowdManager : MonoBehaviour
         {
             suspicion -= SUSP_DECAY * Time.deltaTime;
             /// update GUI
-            susp_bar.value = suspicion / SUSP_LIMIT;
+            susp_bar.value = suspicion;
             return;
         }
 
@@ -120,7 +121,7 @@ public class CrowdManager : MonoBehaviour
         float susp_multiplier = 1 - pumpspeed / SUSP_SPEED_THRESHOLD;
         suspicion += SUSP_RATE * Time.deltaTime * susp_multiplier;
         /// update GUI
-        susp_bar.value = suspicion / SUSP_LIMIT;
+        susp_bar.value = suspicion;
 
         if (suspicion >= SUSP_LIMIT)
         {
