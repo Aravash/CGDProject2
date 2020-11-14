@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class HazardMove : MonoBehaviour
 {
+    [SerializeField] float speedMultiplier = 5.0f;
+    
     public void Move(float change)
     {
-        Debug.Log("moving");
-        transform.position -= new Vector3(change, 0, 0);
+        transform.position -= new Vector3(change * speedMultiplier, 0, 0);
+        
+        if (transform.position.x < -3.0f) 
+                            Destroy(gameObject);
     }
 }
