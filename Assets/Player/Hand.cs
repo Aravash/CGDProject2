@@ -39,13 +39,13 @@ public class Hand : MonoBehaviour
 
         // Fetch user directional input
         Vector2 wish_dir = new Vector2(0, 0);
-        if (Input.GetKey("d") || Input.GetKey("right"))
+        if (Input.GetKey("d"))
             wish_dir.x++;
-        if (Input.GetKey("a") || Input.GetKey("left"))
+        if (Input.GetKey("a"))
             wish_dir.x--;
-        if (Input.GetKey("w") || Input.GetKey("up"))
+        if (Input.GetKey("w"))
             wish_dir.y++;
-        if (Input.GetKey("s") || Input.GetKey("down"))
+        if (Input.GetKey("s"))
             wish_dir.y--;
         wish_dir.Normalize();
 
