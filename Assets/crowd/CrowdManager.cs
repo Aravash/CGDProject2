@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class CrowdManager : MonoBehaviour
 {
+    [SerializeField] bool DEBUG_MESSAGES = false;
     // Needs to be a MonoBehaviour singleton, because it utilizes unity's Update()
     static CrowdManager _i;
 
@@ -51,9 +52,7 @@ public class CrowdManager : MonoBehaviour
     void crowdSpawnEvent()
     {
         float intensity = Mathf.Sin(Time.time * 0.1f);
-        Debug.Log("Intensity: " + intensity);
         float rng = gaussDistribution();
-        Debug.Log("rng: " + rng);
         rng += intensity;
         if (rng > 0)
         {
@@ -72,20 +71,31 @@ public class CrowdManager : MonoBehaviour
             new_cd = Random.Range(0.3f, 5);
         }
         event_cooldown = new_cd;
-        Debug.Log("CD: " + event_cooldown);
+        if(DEBUG_MESSAGES)
+        {
+            Debug.Log("Intensity: " + intensity);
+            Debug.Log("rng: " + rng);
+            Debug.Log("CD: " + event_cooldown);
+        }
     }
     void increment()
     {
         num_onlookers++;
         if (num_onlookers > MAX_CROWD)
             num_onlookers = MAX_CROWD;
-        Debug.Log("SPAWN: " + num_onlookers);
+        if (DEBUG_MESSAGES)
+        {
+            Debug.Log("SPAWN: " + num_onlookers);
+        }
     }
     void decrement()
     {
         if (num_onlookers > 0)
             num_onlookers--;
-        Debug.Log("DSPWN: " + num_onlookers);
+        if (DEBUG_MESSAGES)
+        {
+            Debug.Log("DSPWN: " + num_onlookers);
+        }
     }
     // Random number in a normal distribution -1 to 1
     float gaussDistribution()

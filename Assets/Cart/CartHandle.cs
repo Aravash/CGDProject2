@@ -23,11 +23,11 @@ public class CartHandle : MonoBehaviour
     {
         if (hand_L != null)
         {
-            pull(hand_L);
+            pull(hand_L, false);
         }
         if (hand_R != null)
         {
-            pull(hand_R);
+            pull(hand_R, true);
         }
         // Control the background
         float delta = Mathf.Abs(transform.rotation.x - old_rot);
@@ -37,14 +37,14 @@ public class CartHandle : MonoBehaviour
 
     Vector3 debugA;
     Vector3 debugB;
-    private void pull(Transform hand)
+    private void pull(Transform hand, bool right_hand)
     {
         Vector3 projection = new Vector3(
             hand.GetComponent<RectTransform>().position.x,
             hand.GetComponent<RectTransform>().position.y,
             gameObject.transform.position.z - Camera.main.transform.position.z);
 
-        Vector3 handle_root = calculateHandleRoot(false);
+        Vector3 handle_root = calculateHandleRoot(right_hand);
         Vector3 diff = Camera.main.ScreenToWorldPoint(projection) - handle_root;
 
         if (diff.magnitude > MAX_PULL)
