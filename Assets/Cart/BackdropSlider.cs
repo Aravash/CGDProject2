@@ -6,7 +6,7 @@ public class BackdropSlider : MonoBehaviour
 {
     const float ACCEL_MULTIPLIER = 0.6f;
     const float FRICTION = 0.4f;
-    private Renderer renderer;
+    private new Renderer renderer;
     float speed = 0;
 
     // Start is called before the first frame update
@@ -24,17 +24,12 @@ public class BackdropSlider : MonoBehaviour
     }
 
     // Accel value is based on the cart handle's rotation delta
-    float debug_high_accel = 0;
+    float debug_high = 0;
     public void accelerate(float accel)
     {
         if (Mathf.Abs(accel) <= 0)
             return;
         speed += accel * ACCEL_MULTIPLIER;
-        if(accel > debug_high_accel)
-        {
-            debug_high_accel = accel;
-            Debug.Log("ACCEL: " + debug_high_accel);
-        }
     }
 
     private void applyFriction()
@@ -53,5 +48,12 @@ public class BackdropSlider : MonoBehaviour
         newspeed /= speed;
 
         speed *= newspeed;
+
+        Debug.Log("SPEED: " + speed);
+    }
+
+    public float getSpeed()
+    {
+        return speed;
     }
 }
