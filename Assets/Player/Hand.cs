@@ -19,7 +19,6 @@ public class Hand : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) || Input.GetAxis("LT"+id) > 0.1)
         {
-            Debug.Log("buton");
             grab();
         }
         if (Input.GetMouseButtonUp(0) || Input.GetAxis("LT"+id) < 0.1)
@@ -40,7 +39,6 @@ public class Hand : MonoBehaviour
 
         // Fetch user directional input
         Vector2 wish_dir = new Vector2(0, 0);
-        /*
          if (Input.GetKey("d"))
             wish_dir.x++;
         if (Input.GetKey("a"))
@@ -49,9 +47,8 @@ public class Hand : MonoBehaviour
             wish_dir.y++;
         if (Input.GetKey("s"))
             wish_dir.y--;
-            
+
         wish_dir.Normalize();
-        */
 
         wish_dir.x += Input.GetAxis("LHorizontal" + id);
         wish_dir.y += Input.GetAxis("LVertical" + id);

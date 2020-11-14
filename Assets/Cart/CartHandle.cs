@@ -23,11 +23,11 @@ public class CartHandle : MonoBehaviour
     {
         if (hand_L != null)
         {
-            pull(hand_L);
+            pull(hand_L, false);
         }
         if (hand_R != null)
         {
-            pull(hand_R);
+            pull(hand_R, true);
         }
         // Control the background
         float delta = Mathf.Abs(transform.rotation.x - old_rot);
@@ -37,7 +37,7 @@ public class CartHandle : MonoBehaviour
 
     Vector3 debugA;
     Vector3 debugB;
-    private void pull(Transform hand)
+    private void pull(Transform hand, bool right_hand)
     {
         Vector3 projection = new Vector3(
             hand.GetComponent<RectTransform>().position.x,
