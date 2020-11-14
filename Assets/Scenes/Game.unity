@@ -429,7 +429,7 @@ PrefabInstance:
     - target: {fileID: 7164705867780951124, guid: 9c41cb01ba6e8e34589ea19459a6acca,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7164705867780951124, guid: 9c41cb01ba6e8e34589ea19459a6acca,
         type: 3}
@@ -1892,15 +1892,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1360463620}
     m_Modifications:
-    - target: {fileID: 4265531335453705997, guid: 68e2da7be1d376442924db503a4d8baf,
-        type: 3}
-      propertyPath: id
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7164705867780951127, guid: 68e2da7be1d376442924db503a4d8baf,
         type: 3}
       propertyPath: m_Name
       value: Head (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4265531335453705997, guid: 68e2da7be1d376442924db503a4d8baf,
+        type: 3}
+      propertyPath: id
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7164705867780951124, guid: 68e2da7be1d376442924db503a4d8baf,
         type: 3}
@@ -2276,8 +2276,8 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1016153756}
   m_PrefabAsset: {fileID: 0}
---- !u!135 &1345052214
-SphereCollider:
+--- !u!136 &1345052214
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2286,9 +2286,10 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
   m_Radius: 0.04
-  m_Center: {x: 0, y: 0, z: -0.33}
+  m_Height: 0.12
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: -0.31}
 --- !u!54 &1345052215
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2317,8 +2318,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48321c110d6b27a4dbc5e1e245660c7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!135 &1345052217
-SphereCollider:
+--- !u!136 &1345052217
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2327,9 +2328,10 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
   m_Radius: 0.04
-  m_Center: {x: 0, y: 0, z: 0.33}
+  m_Height: 0.12
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 0.31}
 --- !u!1 &1360463616
 GameObject:
   m_ObjectHideFlags: 0
@@ -2866,6 +2868,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 594ae6607a3fc9d4f9ab5b87526d47b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DEBUG_MESSAGES: 0
 --- !u!4 &1724026173
 Transform:
   m_ObjectHideFlags: 0
