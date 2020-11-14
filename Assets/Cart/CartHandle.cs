@@ -44,7 +44,7 @@ public class CartHandle : MonoBehaviour
             hand.GetComponent<RectTransform>().position.y,
             gameObject.transform.position.z - Camera.main.transform.position.z);
 
-        Vector3 handle_root = calculateHandleRoot(false);
+        Vector3 handle_root = calculateHandleRoot(right_hand);
         Vector3 diff = Camera.main.ScreenToWorldPoint(projection) - handle_root;
 
         if (diff.magnitude > MAX_PULL)
