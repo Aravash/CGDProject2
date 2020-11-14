@@ -56,7 +56,7 @@ public class Prop : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         // if(collision.collider.GetComponent<Head>() != null)
-        //  collision.collider.GetComponent<Head>().bonk(collision.impulse.magnitude);
+        //collision.collider.GetComponent<Head>().bonk(collision.impulse.magnitude);
 
         // if(collision.collider.tag == "conveyor")
         //  grounded = true;

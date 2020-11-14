@@ -1,14 +1,32 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Head : MonoBehaviour
 {
     const float MV_ACCEL = 500f;
     const float MV_FRICTION = 1f;
-    
+
+    Slider player1_HPBar;
+    Slider player2_HPBar;
+    [SerializeField] Gradient gradient;
+
+    float maxHP = 100f;
+    float currentHP;
+
+    float damageMulti = 10f;
+
+    Transform head;
+
     [SerializeField] int id = 0; // 0 = left, 1 = right
 
+    private void Start()
+    {
+        currentHP = maxHP;
+        setHPBar();
+        //setHealth();
+    }
     private void FixedUpdate()
     {
         applyFriction();
@@ -35,8 +53,33 @@ public class Head : MonoBehaviour
         acceleration.x *= MV_ACCEL;
         acceleration.y *= MV_ACCEL;
         gameObject.GetComponent<Rigidbody2D>().velocity += acceleration;
+
+    }
+
+    private void setHPBar()
+    {
+        player1_HPBar = GameObject.Find("Player1_HPBar").GetComponent<Slider>();
+        player1_HPBar.maxValue = maxHP;
+        player1_HPBar.value = currentHP;
+
+        player2_HPBar = GameObject.Find("Player2_HPBar").GetComponent<Slider>();
+        player2_HPBar.maxValue = maxHP;
+        player2_HPBar.value = currentHP;
+
+        //TODO set up gradient 
     }
     
+    private void setHealthBarP1(float damage)
+    {
+        damage *= damageMulti;
+        player1_HPBar.value -= damage;
+    }
+
+    private void setHealthBarP2(float damage)
+    {
+        damage *= damageMulti;
+        player2_HPBar.value -= damage;
+    }
     private void applyFriction()
     {
         Vector2 vel = gameObject.GetComponent<Rigidbody2D>().velocity;
@@ -59,5 +102,12 @@ public class Head : MonoBehaviour
         vel.x *= newspeed;
         vel.y *= newspeed;
         gameObject.GetComponent<Rigidbody2D>().velocity = vel;
+    }
+
+    public void bonk(float impluse)
+    {
+        //TODO sort out damage taken
+        //setHealthBarP1(impluse);
+        //setHealthBarP2(impluse);
     }
 }

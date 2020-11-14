@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Player1_HPBar
+  - Player2_HPBar
   layers:
   - Default
   - TransparentFX
