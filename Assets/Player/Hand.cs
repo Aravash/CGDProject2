@@ -17,11 +17,11 @@ public class Hand : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) || Input.GetButtonDown("LT"+id))
         {
             grab();
         }
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) || Input.GetButtonUp("LT"+id))
         {
             release();
         }
@@ -39,7 +39,8 @@ public class Hand : MonoBehaviour
 
         // Fetch user directional input
         Vector2 wish_dir = new Vector2(0, 0);
-        if (Input.GetKey("d"))
+        /*
+         if (Input.GetKey("d"))
             wish_dir.x++;
         if (Input.GetKey("a"))
             wish_dir.x--;
@@ -47,7 +48,12 @@ public class Hand : MonoBehaviour
             wish_dir.y++;
         if (Input.GetKey("s"))
             wish_dir.y--;
+            
         wish_dir.Normalize();
+        */
+
+        wish_dir.x += Input.GetAxis("LHorizontal" + id);
+        wish_dir.y += Input.GetAxis("LVertical" + id);
 
         // Convert input to movement
         Vector2 acceleration = wish_dir;

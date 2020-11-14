@@ -15,7 +15,8 @@ public class Head : MonoBehaviour
 
         // Fetch user directional input
         Vector2 wish_dir = new Vector2(0, 0);
-        if (Input.GetKey("right"))
+        /*
+         if (Input.GetKey("right"))
             wish_dir.x++;
         if (Input.GetKey("left"))
             wish_dir.x--;
@@ -24,6 +25,10 @@ public class Head : MonoBehaviour
         if (Input.GetKey("down"))
             wish_dir.y--;
         wish_dir.Normalize();
+        */
+        
+        wish_dir.x += Input.GetAxis("RHorizontal" + id);
+        wish_dir.y += Input.GetAxis("RVertical" + id);
 
         // Convert input to movement
         Vector2 acceleration = wish_dir;
