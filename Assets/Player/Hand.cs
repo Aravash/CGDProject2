@@ -17,11 +17,12 @@ public class Hand : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) || Input.GetButtonDown("LT"+id))
+        if (Input.GetMouseButtonDown(0) || Input.GetAxis("LT"+id) > 0.1)
         {
+            Debug.Log("buton");
             grab();
         }
-        if (Input.GetMouseButtonUp(0) || Input.GetButtonUp("LT"+id))
+        if (Input.GetMouseButtonUp(0) || Input.GetAxis("LT"+id) < 0.1)
         {
             release();
         }

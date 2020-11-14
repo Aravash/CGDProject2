@@ -4,11 +4,9 @@
     <list default="true" id="25b6e037-17e6-4058-b868-40e1401667ee" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CGDProject2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CGDProject2/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Player/Hand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Hand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/Hand.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Hand.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/Head.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Head.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Player/Head.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Head.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +17,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Player/Head.prefab" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Player/Hand.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Cart/CartHandle.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Cart/BackdropSlider.cs" root0="FORCE_HIGHLIGHTING" />
@@ -75,7 +74,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1605359138894</updated>
-      <workItem from="1605359174268" duration="3859000" />
+      <workItem from="1605359174268" duration="4973000" />
     </task>
     <servers />
   </component>
