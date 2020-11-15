@@ -17,9 +17,9 @@ public class Head : MonoBehaviour
 
     float damageMulti = 10f;
 
-    Transform head;
-
     [SerializeField] int id = 0; // 0 = left, 1 = right
+
+    Transform head;
 
     private void Start()
     {
@@ -30,7 +30,7 @@ public class Head : MonoBehaviour
     private void FixedUpdate()
     {
         applyFriction();
-
+        //Test();
         // Fetch user directional input
         Vector2 wish_dir = new Vector2(0, 0);
         /*
@@ -53,8 +53,24 @@ public class Head : MonoBehaviour
         acceleration.x *= MV_ACCEL;
         acceleration.y *= MV_ACCEL;
         gameObject.GetComponent<Rigidbody2D>().velocity += acceleration;
-
     }
+
+    private void Test()
+    {
+        Vector3 projection = new Vector3(GetComponent<RectTransform>().position.x, GetComponent<RectTransform>().position.y, -Camera.main.transform.position.z);
+        Vector3 diff = Camera.main.ScreenToWorldPoint(projection);
+        
+        Gizmos.DrawWireSphere(diff, 0.1f);
+
+        //Debug.Log(diff);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Test();
+    }
+
 
     private void setHPBar()
     {
@@ -69,6 +85,7 @@ public class Head : MonoBehaviour
         //TODO set up gradient 
     }
     
+    //iS THIS BEST WAY? LOOK INTO
     private void setHealthBarP1(float damage)
     {
         damage *= damageMulti;

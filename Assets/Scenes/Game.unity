@@ -2438,11 +2438,31 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7164705867780951124, guid: 68e2da7be1d376442924db503a4d8baf,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7164705867780951124, guid: 68e2da7be1d376442924db503a4d8baf,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7164705867780951124, guid: 68e2da7be1d376442924db503a4d8baf,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7164705867780951130, guid: 68e2da7be1d376442924db503a4d8baf,
         type: 3}
       propertyPath: m_Texture
       value: 
       objectReference: {fileID: 2800000, guid: 9fcacf72652dfc64da25ea323eac1ca7, type: 3}
+    - target: {fileID: 7164705867780951125, guid: 68e2da7be1d376442924db503a4d8baf,
+        type: 3}
+      propertyPath: m_Simulated
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68e2da7be1d376442924db503a4d8baf, type: 3}
 --- !u!224 &1216930183 stripped
@@ -3058,6 +3078,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7164705867780951124, guid: 68e2da7be1d376442924db503a4d8baf,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7164705867780951124, guid: 68e2da7be1d376442924db503a4d8baf,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7164705867780951124, guid: 68e2da7be1d376442924db503a4d8baf,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7164705867780951130, guid: 68e2da7be1d376442924db503a4d8baf,
         type: 3}
