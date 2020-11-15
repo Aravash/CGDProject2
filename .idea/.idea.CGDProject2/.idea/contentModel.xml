@@ -11,7 +11,11 @@
           <e p="CartHandle.cs" t="Include" />
         </e>
         <e p="crowd" t="Include">
+          <e p="altcrowd" t="Include">
+            <e p="altCrowdManager.cs" t="Include" />
+          </e>
           <e p="CrowdManager.cs" t="Include" />
+          <e p="CrowdMember.cs" t="Include" />
         </e>
         <e p="menuscript" t="Include">
           <e p="MenuManager.cs" t="Include" />
@@ -27,6 +31,8 @@
             <e p="HazardMove.cs" t="Include" />
           </e>
           <e p="Prop.cs" t="Include" />
+          <e p="PropIndicatorAnimations.cs" t="Include" />
+          <e p="PropSpawner.cs" t="Include" />
         </e>
       </e>
       <e p="CGDProject2.sln" t="IncludeFlat" />
