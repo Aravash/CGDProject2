@@ -521,6 +521,11 @@ PrefabInstance:
       propertyPath: id
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7164705867780951128, guid: 9c41cb01ba6e8e34589ea19459a6acca,
+        type: 3}
+      propertyPath: IOwnAController
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c41cb01ba6e8e34589ea19459a6acca, type: 3}
 --- !u!1 &262350556
@@ -2975,7 +2980,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 594ae6607a3fc9d4f9ab5b87526d47b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DEBUG_MESSAGES: 0
+  DEBUG_MESSAGES_A: 0
+  DEBUG_MESSAGES_B: 0
 --- !u!4 &1724026173
 Transform:
   m_ObjectHideFlags: 0
