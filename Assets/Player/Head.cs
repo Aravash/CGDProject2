@@ -36,7 +36,7 @@ public class Head : MonoBehaviour
         /*
          if (Input.GetKey("right"))
             wish_dir.x++;
-        if (Input.GetKey("left"))
+         if (Input.GetKey("left"))
             wish_dir.x--;
         if (Input.GetKey("up"))
             wish_dir.y++;
