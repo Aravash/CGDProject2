@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Hand : MonoBehaviour
 {
-    const float MV_MAX_SPEED = 5f;
-    const float MV_ACCEL = 500f;
+    const float MV_MAX_SPEED = .1f;
+    const float MV_ACCEL = 10f;
     const float MV_FRICTION = 1f;
     const float RADIUS = 0.8f;
 
@@ -93,12 +93,14 @@ public class Hand : MonoBehaviour
     void grab()
     {
         RaycastHit hit;
-        Ray ray = Camera.main.ScreenPointToRay(gameObject.GetComponent<RectTransform>().position);
-
+		
+		var back = transform.TransformDirection(Vector3.back);
+        var ray = new Ray(transform.position, Vector3.forward);//Camera.main.ScreenPointToRay(gameObject.GetComponent<RectTransform>().position);
+		
         LayerMask lm = 0;
         //lm |= 1 << 9;
         lm = LayerMask.GetMask("grabbable");
-        Debug.DrawRay(Camera.main.transform.position, ray.direction * 30, Color.white, 3);
+        Debug.DrawRay(transform.position, ray.direction * 30, Color.white, 3);
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, lm))
         {
             GameObject other = hit.transform.gameObject;
