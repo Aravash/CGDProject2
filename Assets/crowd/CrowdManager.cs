@@ -8,7 +8,7 @@ public class CrowdManager : MonoBehaviour
     [SerializeField] bool DEBUG_MESSAGES_A = false;
     [SerializeField] bool DEBUG_MESSAGES_B = false;
     // Needs to be a MonoBehaviour singleton, because it utilizes unity's Update()
-    static CrowdManager _i;
+    public static CrowdManager _i;
 
     const int MAX_CROWD = 6;
     int num_onlookers = 0;
@@ -98,7 +98,6 @@ public class CrowdManager : MonoBehaviour
     {
         if (num_onlookers == 0)
             return;
-        num_onlookers--;
         int id = Random.Range(0, (crowd.Count - 1));
         if (DEBUG_MESSAGES_B)
         {
@@ -106,8 +105,11 @@ public class CrowdManager : MonoBehaviour
             Debug.Log("DSID: " + id);
         }
         GameObject member = crowd[id];
-
-        Debug.Log("DSPWN: " + num_onlookers);
+        member.GetComponent<CrowdMember>().leave();
+    }
+    public void decreaseCount(GameObject member)
+    {
+        num_onlookers--;
         crowd.Remove(member);
         Destroy(member);
     }
