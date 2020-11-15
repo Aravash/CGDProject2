@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Head : MonoBehaviour
 {
-    const float MV_ACCEL = 500f;
+    const float MV_ACCEL = 10f;
     const float MV_FRICTION = 1f;
 
     Slider player1_HPBar;
@@ -68,7 +68,7 @@ public class Head : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Test();
+        //Test();
     }
 
 
@@ -124,7 +124,7 @@ public class Head : MonoBehaviour
     public void bonk(float impluse)
     {
         //TODO sort out damage taken
-        //setHealthBarP1(impluse);
-        //setHealthBarP2(impluse);
+        setHealthBarP1(impluse);
+        setHealthBarP2(impluse);
     }
 }
