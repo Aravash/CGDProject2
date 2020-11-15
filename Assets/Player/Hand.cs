@@ -5,56 +5,72 @@ using UnityEngine;
 public class Hand : MonoBehaviour
 {
     const float MV_MAX_SPEED = .1f;
-    const float MV_ACCEL = 10f;
+    const float MV_ACCEL = 5f;
     const float MV_FRICTION = 1f;
     const float RADIUS = 0.8f;
 
+    [SerializeField] private bool IOwnAController = false;
+
     [SerializeField] int id = 0; // 0 = left, 1 = right
 
+    bool grabbed_something = false;
     GameObject held_prop;
     GameObject held_bar;
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) || Input.GetAxis("LT"+id) > 0.1)
+        if (IOwnAController)
         {
-            Debug.Log("buton");
-            grab();
+            if (Input.GetMouseButtonDown(0) || Input.GetAxis("LT" + id) > 0.1 && !grabbed_something)
+            {
+                grab();
+            }
+
+            if (Input.GetMouseButtonUp(0) || Input.GetAxis("LT" + id) < 0.1 && grabbed_something)
+            {
+                release();
+            }
         }
-        if (Input.GetMouseButtonUp(0) || Input.GetAxis("LT"+id) < 0.1)
+        else
         {
-            release();
+            
+            if (Input.GetMouseButtonDown(0))
+            {
+                grab();
+            }
+
+            if (Input.GetMouseButtonUp(0))
+            {
+                release();
+            }
         }
     }
 
     private void FixedUpdate()
     {
-       //if(held_bar)
-       //{
-       //    gameObject.GetComponent<Rigidbody2D>().velocity *= 0;
-       //    return;
-       //}
-
         applyFriction();
 
         // Fetch user directional input
         Vector2 wish_dir = new Vector2(0, 0);
-        /*
-         if (Input.GetKey("d"))
-            wish_dir.x++;
-        if (Input.GetKey("a"))
-            wish_dir.x--;
-        if (Input.GetKey("w"))
-            wish_dir.y++;
-        if (Input.GetKey("s"))
-            wish_dir.y--;
-            
-        wish_dir.Normalize();
-        */
+        if (IOwnAController)
+        {
+            wish_dir.x += Input.GetAxis("LHorizontal" + id);
+            wish_dir.y += Input.GetAxis("LVertical" + id);
+        }
+        else
+        {
+            if (Input.GetKey("d"))
+                wish_dir.x++;
+            if (Input.GetKey("a"))
+                wish_dir.x--;
+            if (Input.GetKey("w"))
+                wish_dir.y++;
+            if (Input.GetKey("s"))
+                wish_dir.y--;
 
-        wish_dir.x += Input.GetAxis("LHorizontal" + id);
-        wish_dir.y += Input.GetAxis("LVertical" + id);
+            wish_dir.Normalize();
+        }
 
         // Convert input to movement
         Vector2 acceleration = wish_dir;
@@ -103,6 +119,7 @@ public class Hand : MonoBehaviour
         Debug.DrawRay(transform.position, ray.direction * 30, Color.white, 3);
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, lm))
         {
+            grabbed_something = true;
             GameObject other = hit.transform.gameObject;
             Debug.Log(other.gameObject.name);
             //if(other.GetComponent<Head>())
@@ -134,5 +151,6 @@ public class Hand : MonoBehaviour
             held_bar.GetComponent<CartHandle>().release(id);
             held_bar = null;
         }
+        grabbed_something = false;
     }
 }
