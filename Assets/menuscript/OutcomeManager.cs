@@ -10,10 +10,11 @@ public class OutcomeManager : MonoBehaviour
 {
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.D))
+        /*test input
+         if (Input.GetKeyDown(KeyCode.D))
         {
             callWin("joseph joestar");
-        }
+        }*/
     }
 
     /*
@@ -37,6 +38,7 @@ public class OutcomeManager : MonoBehaviour
 
     public void returnToMenu()
     {
+        Time.timeScale = 1.0f;
         SceneManager.LoadScene("Menu");
     }
 }

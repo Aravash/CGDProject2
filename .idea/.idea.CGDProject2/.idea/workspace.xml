@@ -2,24 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="25b6e037-17e6-4058-b868-40e1401667ee" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Railroad_assets/materials/Materials.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Railroad_assets/materials/Materials/white-wall.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Railroad_assets/materials/Materials/white-wall.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Railroad_assets/materials/Wall.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Railroad_assets/materials/Wall.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Railroad_assets/materials/floorboards.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Railroad_assets/materials/floorboards.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Railroad_assets/materials/floorboards.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Railroad_assets/materials/floorboards.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Railroad_assets/materials/white-wall.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Railroad_assets/materials/white-wall.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/menuscript/OutcomeManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/menuscript/OutcomeManager.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.CGDProject2/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CGDProject2/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.CGDProject2/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CGDProject2/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CGDProject2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CGDProject2/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/menuscript/MenuManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/menuscript/MenuManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/menuscript/OutcomeManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/menuscript/OutcomeManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,8 +43,8 @@
         <option value="$PROJECT_DIR$/Assets/menu.cs" />
         <option value="$PROJECT_DIR$/Assets/buttoncontroller.cs" />
         <option value="$PROJECT_DIR$/Assets/menuscript/CanvasManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/menuscript/MenuManager.cs" />
         <option value="$PROJECT_DIR$/Assets/menuscript/OutcomeManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/menuscript/MenuManager.cs" />
       </list>
     </option>
   </component>
@@ -105,7 +93,8 @@
       <workItem from="1605368909376" duration="744000" />
       <workItem from="1605369701874" duration="4012000" />
       <workItem from="1605404078918" duration="606000" />
-      <workItem from="1605441083597" duration="2066000" />
+      <workItem from="1605441083597" duration="2306000" />
+      <workItem from="1605469225025" duration="1761000" />
     </task>
     <servers />
   </component>
