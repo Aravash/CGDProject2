@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class CrowdManager : MonoBehaviour
 {
-    [SerializeField] bool DEBUG_MESSAGES = false;
+    [SerializeField] bool DEBUG_MESSAGES_A = false;
+    [SerializeField] bool DEBUG_MESSAGES_B = false;
     // Needs to be a MonoBehaviour singleton, because it utilizes unity's Update()
     static CrowdManager _i;
 
@@ -73,7 +74,7 @@ public class CrowdManager : MonoBehaviour
             new_cd = Random.Range(0.3f, 5);
         }
         event_cooldown = new_cd;
-        if(DEBUG_MESSAGES)
+        if(DEBUG_MESSAGES_A)
         {
             Debug.Log("Intensity: " + intensity);
             Debug.Log("rng: " + rng);
@@ -86,7 +87,7 @@ public class CrowdManager : MonoBehaviour
             return;
         num_onlookers++;
 
-        if (DEBUG_MESSAGES)
+        if (DEBUG_MESSAGES_B)
         {
             Debug.Log("SPAWN: " + num_onlookers);
         }
@@ -97,13 +98,16 @@ public class CrowdManager : MonoBehaviour
     {
         if (num_onlookers == 0)
             return;
-        num_onlookers++;
-        if (DEBUG_MESSAGES)
+        num_onlookers--;
+        int id = Random.Range(0, (crowd.Count - 1));
+        if (DEBUG_MESSAGES_B)
         {
             Debug.Log("DSPWN: " + num_onlookers);
+            Debug.Log("DSID: " + id);
         }
-        
-        GameObject member = crowd[Random.Range(0, (crowd.Count - 1))];
+        GameObject member = crowd[id];
+
+        Debug.Log("DSPWN: " + num_onlookers);
         crowd.Remove(member);
         Destroy(member);
     }
@@ -145,6 +149,8 @@ public class CrowdManager : MonoBehaviour
 
         if (suspicion >= SUSP_LIMIT)
         {
+            suspicion = SUSP_LIMIT; // only for debugging!
+
             // TODO: GAME OVER
             //Debug.Log("EXHIBIT CLOSED");
             //Debug.Log("GAME OVER, EVERYBODY LOSES!");
