@@ -110,8 +110,9 @@ public class Hand : MonoBehaviour
     {
         RaycastHit hit;
 		
-		var back = transform.TransformDirection(Vector3.back);
-        var ray = new Ray(transform.position, Vector3.forward);//Camera.main.ScreenPointToRay(gameObject.GetComponent<RectTransform>().position);
+		var pos = transform.position;
+		pos.z = -999;
+        var ray = new Ray(pos, Vector3.forward);//Camera.main.ScreenPointToRay(gameObject.GetComponent<RectTransform>().position);
 		
         LayerMask lm = 0;
         //lm |= 1 << 9;
@@ -138,7 +139,8 @@ public class Hand : MonoBehaviour
                 other.GetComponent<CartHandle>().grab(gameObject.transform, id);
             }
         }
-    }
+
+	}
     void release()
     {
         if (held_prop != null)
