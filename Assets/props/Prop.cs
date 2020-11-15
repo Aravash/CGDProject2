@@ -32,12 +32,12 @@ public class Prop : MonoBehaviour
         }
         if (hand != null)
         {
-            Vector3 projection = new Vector3(
-                hand.GetComponent<RectTransform>().position.x,
-                hand.GetComponent<RectTransform>().position.y,
+            //var projection = ;//new Vector3(
+                //hand.GetComponent<RectTransform>().position.x,
+                //hand.GetComponent<RectTransform>().position.y,
                 //gameObject.transform.position.z - Camera.main.transform.position.z);
-                -Camera.main.transform.position.z);
-            Vector3 diff = Camera.main.ScreenToWorldPoint(projection) - gameObject.transform.position;
+                //-Camera.main.transform.position.z);
+            Vector3 diff = hand.GetComponent<RectTransform>().position - gameObject.transform.position;
             GetComponent<Rigidbody>().AddForce(diff, ForceMode.Impulse);
 
             Debug.DrawRay(gameObject.transform.position, diff, Color.white, Time.fixedDeltaTime);
