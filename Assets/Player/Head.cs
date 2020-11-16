@@ -13,7 +13,8 @@ public class Head : MonoBehaviour
     [SerializeField] Gradient gradient;
 
     float maxHP = 100f;
-    float currentHP;
+    float currentP1HP;
+    float currentP2HP;
 
     float damageMulti = 3f;
 
@@ -23,7 +24,8 @@ public class Head : MonoBehaviour
 
     private void Start()
     {
-        currentHP = maxHP;
+        currentP1HP = maxHP;
+        currentP2HP = maxHP;
         setHPBar();
         //setHealth();
     }
@@ -77,11 +79,11 @@ public class Head : MonoBehaviour
     {
         player1_HPBar = GameObject.Find("Player1_HPBar").GetComponent<Slider>();
         player1_HPBar.maxValue = maxHP;
-        player1_HPBar.value = currentHP;
+        player1_HPBar.value = maxHP;
 
         player2_HPBar = GameObject.Find("Player2_HPBar").GetComponent<Slider>();
         player2_HPBar.maxValue = maxHP;
-        player2_HPBar.value = currentHP;
+        player2_HPBar.value = maxHP;
 
         //TODO set up gradient 
     }
@@ -91,12 +93,14 @@ public class Head : MonoBehaviour
     {
         damage *= damageMulti;
         player1_HPBar.value -= damage;
+        currentP1HP = player1_HPBar.value;
     }
 
     private void setHealthBarP2(float damage)
     {
         damage *= damageMulti;
         player2_HPBar.value -= damage;
+        currentP2HP = player2_HPBar.value;
     }
     private void applyFriction()
     {
