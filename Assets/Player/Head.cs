@@ -8,24 +8,19 @@ public class Head : MonoBehaviour
     const float MV_ACCEL = 10f;
     const float MV_FRICTION = 1f;
 
-    Slider HPBar;
-    [SerializeField] Gradient gradient;
-
-    float maxHP = 100f;
-    float currentP1HP;
-    float currentP2HP;
-
     float damageMulti = 3f;
 
     [SerializeField] int id = 0; // 0 = left, 1 = right
 
     Transform head;
 
+    GameObject HealthM; //Opposite player ref
+
     private void Start()
     {
-        currentP1HP = maxHP;
-        currentP2HP = maxHP;
-        setHPBar();
+        HealthM = GameObject.FindGameObjectWithTag("HealthManager");
+
+ 
         //setHealth();
     }
     private void FixedUpdate()
@@ -72,30 +67,8 @@ public class Head : MonoBehaviour
         Gizmos.color = Color.red;
         //Test();
     }
-
-
-    private void setHPBar()
-    {
-        HPBar = GameObject.Find(id + "_HPBar").GetComponent<Slider>();
-        HPBar.maxValue = maxHP;
-        HPBar.value = maxHP;
-        //TODO set up gradient 
-    }
     
     //iS THIS BEST WAY? LOOK INTO
-    private void setHealthBarP1(float damage)
-    {
-        damage *= damageMulti;
-        HPBar.value -= damage;
-        currentP1HP = HPBar.value;
-    }
-
-    private void setHealthBarP2(float damage)
-    {
-        damage *= damageMulti;
-        HPBar.value -= damage;
-        currentP2HP = HPBar.value;
-    }
     private void applyFriction()
     {
         Vector2 vel = gameObject.GetComponent<Rigidbody2D>().velocity;
@@ -120,18 +93,12 @@ public class Head : MonoBehaviour
         gameObject.GetComponent<Rigidbody2D>().velocity = vel;
     }
 
-    public void bonk(float impluse, int id)
+    public void bonk(float impluse, int input_id)
     {
+        HealthM.GetComponent<HealthManager>().ChangeHP(Mathf.Floor(impluse), input_id);
 
-        if (id == 0)
-        {
-            setHealthBarP2(Mathf.Floor(impluse));
-        }
-        else
-        {
-            setHealthBarP1(Mathf.Floor(impluse));
-        }
-
-        Debug.Log("currentSpeed: " + Mathf.Floor(impluse));
+        Debug.Log(input_id);
     }
 }
+
+

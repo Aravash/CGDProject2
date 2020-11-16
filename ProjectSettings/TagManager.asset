@@ -9,6 +9,7 @@ TagManager:
   - P1Head
   - P2Head
   - HeadTarget
+  - HealthManager
   layers:
   - Default
   - TransparentFX

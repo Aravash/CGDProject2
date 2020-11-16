@@ -50,8 +50,10 @@ public class Prop : MonoBehaviour
 
     public void grab(Transform grabber, int id)
     {
-        id = playerId;
+        playerId = id;
         hand = grabber;
+
+        Debug.Log(id);
     }
     public void release()
     {
@@ -62,7 +64,7 @@ public class Prop : MonoBehaviour
     {
 
         //TODO change this to be cleaner unless implementation changes
-        if ((collision.collider.tag == "P1Head" && playerId == 1) || (collision.collider.tag == "P2Head" && playerId == 0))
+        if (collision.collider.tag == "P1Head" && playerId == 1 || collision.collider.tag == "P2Head" && playerId == 0)
         {
             head.GetComponent<Head>().bonk(collision.impulse.magnitude, playerId);
         }
