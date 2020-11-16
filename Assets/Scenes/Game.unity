@@ -2169,7 +2169,7 @@ MonoBehaviour:
   cam: {fileID: 1849851012}
   propMinSpawnDelay: 3
   propMaxSpawnDelay: 6
-  indicatorHeightPos: -155
+  indicatorHeightPos: -270
   propHeightDelay: 10
 --- !u!65 &1274703070
 BoxCollider:
