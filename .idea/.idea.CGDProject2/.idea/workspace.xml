@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="25b6e037-17e6-4058-b868-40e1401667ee" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.CGDProject2/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CGDProject2/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CGDProject2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CGDProject2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/crowd/altcrowd/altCrowdManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/crowd/altcrowd/altCrowdManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +95,7 @@
       <workItem from="1605404078918" duration="606000" />
       <workItem from="1605441083597" duration="2306000" />
       <workItem from="1605469225025" duration="5482000" />
-      <workItem from="1605531803894" duration="3977000" />
+      <workItem from="1605531803894" duration="4583000" />
     </task>
     <servers />
   </component>
