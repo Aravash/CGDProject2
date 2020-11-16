@@ -8,8 +8,7 @@ public class Head : MonoBehaviour
     const float MV_ACCEL = 10f;
     const float MV_FRICTION = 1f;
 
-    Slider player1_HPBar;
-    Slider player2_HPBar;
+    Slider HPBar;
     [SerializeField] Gradient gradient;
 
     float maxHP = 100f;
@@ -77,14 +76,9 @@ public class Head : MonoBehaviour
 
     private void setHPBar()
     {
-        player1_HPBar = GameObject.Find("Player1_HPBar").GetComponent<Slider>();
-        player1_HPBar.maxValue = maxHP;
-        player1_HPBar.value = maxHP;
-
-        player2_HPBar = GameObject.Find("Player2_HPBar").GetComponent<Slider>();
-        player2_HPBar.maxValue = maxHP;
-        player2_HPBar.value = maxHP;
-
+        HPBar = GameObject.Find(id + "_HPBar").GetComponent<Slider>();
+        HPBar.maxValue = maxHP;
+        HPBar.value = maxHP;
         //TODO set up gradient 
     }
     
@@ -92,15 +86,15 @@ public class Head : MonoBehaviour
     private void setHealthBarP1(float damage)
     {
         damage *= damageMulti;
-        player1_HPBar.value -= damage;
-        currentP1HP = player1_HPBar.value;
+        HPBar.value -= damage;
+        currentP1HP = HPBar.value;
     }
 
     private void setHealthBarP2(float damage)
     {
         damage *= damageMulti;
-        player2_HPBar.value -= damage;
-        currentP2HP = player2_HPBar.value;
+        HPBar.value -= damage;
+        currentP2HP = HPBar.value;
     }
     private void applyFriction()
     {
@@ -128,7 +122,7 @@ public class Head : MonoBehaviour
 
     public void bonk(float impluse, int id)
     {
-        //TODO sort out damage taken and only to target hit
+
         if (id == 0)
         {
             setHealthBarP2(Mathf.Floor(impluse));

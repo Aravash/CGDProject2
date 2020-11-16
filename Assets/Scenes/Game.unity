@@ -721,7 +721,7 @@ GameObject:
   - component: {fileID: 440852177}
   - component: {fileID: 440852178}
   m_Layer: 5
-  m_Name: Player1_HPBar
+  m_Name: 0_HPBar
   m_TagString: Player1_HPBar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1535,8 +1535,8 @@ GameObject:
   - component: {fileID: 1022275792}
   - component: {fileID: 1022275793}
   m_Layer: 5
-  m_Name: Player2_HPBar
-  m_TagString: Player1_HPBar
+  m_Name: 1_HPBar
+  m_TagString: Player2_HPBar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
