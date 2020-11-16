@@ -10,7 +10,7 @@ public class HazardMove : MonoBehaviour
     {
         transform.position -= new Vector3(change * speedMultiplier, 0, 0);
         
-        if (transform.position.x < -3.0f) 
+        if (transform.position.x < -4.0f) 
                             Destroy(gameObject);
     }
 }

@@ -11,7 +11,9 @@ public class BackdropSlider : MonoBehaviour
 
     [SerializeField]private Vector2 SpawnTimerRange = new Vector2(.5f, 1.5f);
     private float spawnTimer;
-    [SerializeField] private GameObject hazardObj;
+    [SerializeField] private GameObject hazardObj1;
+    [SerializeField] private GameObject hazardObj2;
+    [SerializeField] private GameObject hazardObj3;
     private Vector3 hazardSpawnPos;
     private HazardMove hazard = null;
 
@@ -38,7 +40,22 @@ public class BackdropSlider : MonoBehaviour
         {
             if (spawnTimer <= 0)
             {
-                hazard = Instantiate(hazardObj, hazardSpawnPos, Quaternion.identity).GetComponent<HazardMove>();
+                int random = Random.Range(1, 4);
+                switch (random)
+                {
+                    case 1:
+                        hazard = Instantiate(hazardObj1, hazardSpawnPos, Quaternion.identity).GetComponent<HazardMove>();
+                        break;
+                    case 2:
+                        hazard = Instantiate(hazardObj2, hazardSpawnPos, Quaternion.identity).GetComponent<HazardMove>();
+                        break;
+                    case 3:
+                        hazard = Instantiate(hazardObj3, hazardSpawnPos, Quaternion.identity).GetComponent<HazardMove>();
+                        break;
+                    default:
+                        hazard = Instantiate(hazardObj1, hazardSpawnPos, Quaternion.identity).GetComponent<HazardMove>();
+                        break;
+                }
                 spawnTimer = Random.Range(SpawnTimerRange.x, SpawnTimerRange.y);
             }
             else spawnTimer -= speed * Time.deltaTime;
