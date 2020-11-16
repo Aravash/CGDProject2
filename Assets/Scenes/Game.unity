@@ -3425,7 +3425,7 @@ GameObject:
   - component: {fileID: 5411213097896246936}
   - component: {fileID: 5411213097896246942}
   m_Layer: 0
-  m_Name: Player2
+  m_Name: Player1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3632,7 +3632,7 @@ GameObject:
   - component: {fileID: 5411213098059621660}
   m_Layer: 0
   m_Name: HeadHand
-  m_TagString: Untagged
+  m_TagString: P2Head
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3876,7 +3876,7 @@ GameObject:
   - component: {fileID: 5411213098278004730}
   - component: {fileID: 5411213098278004725}
   m_Layer: 5
-  m_Name: Right Target
+  m_Name: P2HandTarget
   m_TagString: Untagged
   m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -4066,7 +4066,7 @@ GameObject:
   - component: {fileID: 5411213098362974174}
   - component: {fileID: 5411213098362974169}
   m_Layer: 5
-  m_Name: Left Target
+  m_Name: P1HandTarget
   m_TagString: Untagged
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -4350,8 +4350,8 @@ GameObject:
   - component: {fileID: 5411213098732652699}
   - component: {fileID: 5411213098732652694}
   m_Layer: 5
-  m_Name: Head Right Target
-  m_TagString: Untagged
+  m_Name: P2HeadTarget
+  m_TagString: HeadTarget
   m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4787,7 +4787,7 @@ GameObject:
   - component: {fileID: 5411213099235613001}
   - component: {fileID: 5411213099235613007}
   m_Layer: 0
-  m_Name: Player1
+  m_Name: Player2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5128,8 +5128,8 @@ GameObject:
   - component: {fileID: 5411213099615742516}
   - component: {fileID: 5411213099615742514}
   m_Layer: 5
-  m_Name: Head Left Target
-  m_TagString: Untagged
+  m_Name: P1HeadTarget
+  m_TagString: HeadTarget
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5474,7 +5474,7 @@ GameObject:
   - component: {fileID: 5411213099873561709}
   m_Layer: 0
   m_Name: HeadHand
-  m_TagString: Untagged
+  m_TagString: P1Head
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

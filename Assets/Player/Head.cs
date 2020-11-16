@@ -15,7 +15,7 @@ public class Head : MonoBehaviour
     float maxHP = 100f;
     float currentHP;
 
-    float damageMulti = 10f;
+    float damageMulti = 3f;
 
     [SerializeField] int id = 0; // 0 = left, 1 = right
 
@@ -53,6 +53,7 @@ public class Head : MonoBehaviour
         acceleration.x *= MV_ACCEL;
         acceleration.y *= MV_ACCEL;
         gameObject.GetComponent<Rigidbody2D>().velocity += acceleration;
+
     }
 
     private void Test()
@@ -121,10 +122,18 @@ public class Head : MonoBehaviour
         gameObject.GetComponent<Rigidbody2D>().velocity = vel;
     }
 
-    public void bonk(float impluse)
+    public void bonk(float impluse, int id)
     {
-        //TODO sort out damage taken
-        setHealthBarP1(impluse);
-        setHealthBarP2(impluse);
+        //TODO sort out damage taken and only to target hit
+        if (id == 0)
+        {
+            setHealthBarP2(Mathf.Floor(impluse));
+        }
+        else
+        {
+            setHealthBarP1(Mathf.Floor(impluse));
+        }
+
+        Debug.Log("currentSpeed: " + Mathf.Floor(impluse));
     }
 }

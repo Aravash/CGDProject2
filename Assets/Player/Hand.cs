@@ -130,7 +130,7 @@ public class Hand : MonoBehaviour
             if (other.GetComponent<Prop>() != null)
             {
                 held_prop = other;
-                other.GetComponent<Prop>().grab(gameObject.transform);
+                other.GetComponent<Prop>().grab(gameObject.transform, id);
             }
             if (other.GetComponent<CartHandle>())
             {

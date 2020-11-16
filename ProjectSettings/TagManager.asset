@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Player1_HPBar
   - Player2_HPBar
+  - P1Head
+  - P2Head
+  - HeadTarget
   layers:
   - Default
   - TransparentFX
