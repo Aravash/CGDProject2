@@ -90,6 +90,7 @@ public class altCrowdManager : MonoBehaviour
         {
             cumulative += speed;
         }
+        cumulative *= 1000; //prevent fucky business because speed is so low by default
         Debug.Log("average speed was " + cumulative / backdropSpeeds.Length + ", acceptable average is " + acceptableAverage);
         return (cumulative / backdropSpeeds.Length > acceptableAverage);
     }

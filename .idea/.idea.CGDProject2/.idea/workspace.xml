@@ -6,8 +6,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CGDProject2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CGDProject2/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/crowd/altcrowd/altCrowdManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/crowd/altcrowd/altCrowdManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/crowd/altcrowd/starRatings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/crowd/altcrowd/starRatings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/resources.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,6 +88,7 @@
       <workItem from="1605369701874" duration="1898000" />
       <workItem from="1605541717524" duration="240000" />
       <workItem from="1605542070467" duration="1606000" />
+      <workItem from="1605570135718" duration="91000" />
     </task>
     <servers />
   </component>

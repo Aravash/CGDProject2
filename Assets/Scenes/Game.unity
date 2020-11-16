@@ -2919,7 +2919,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1142326250
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4876,7 +4876,7 @@ MonoBehaviour:
   crowdPresentDuration: {x: 5, y: 10}
   crowdAbsentDuration: {x: 10, y: 20}
   crowdMoveSpeed: 5
-  acceptableAverage: 0.00015
+  acceptableAverage: 0.18
   timer: 0
   stars: {fileID: 1988887142}
   slider: {fileID: 470221529}
