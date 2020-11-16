@@ -1147,7 +1147,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpawnTimerRange: {x: 0.5, y: 1.5}
-  hazardObj: {fileID: 1414553475396771821, guid: 363b0177361e48147b6b35b01e28315f,
+  hazardObj1: {fileID: 1414553475396771821, guid: 363b0177361e48147b6b35b01e28315f,
+    type: 3}
+  hazardObj2: {fileID: 6941243730591830099, guid: 5110e95d5ac5e6443bc8e4ec24dc1386,
+    type: 3}
+  hazardObj3: {fileID: 8697220186608455803, guid: ca59147d8342bb3459085c9d963df08c,
     type: 3}
 --- !u!1 &658435961
 GameObject:

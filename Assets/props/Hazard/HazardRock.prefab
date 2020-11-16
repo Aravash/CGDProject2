@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4991866803342771104
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 402656286533824463}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &402656286533824463
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4991866803342771104}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0.19, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1284292619222776455}
+  m_Father: {fileID: 1798977705505489547}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1 &8697220186608455803
 GameObject:
   m_ObjectHideFlags: 0
@@ -26,9 +57,9 @@ Transform:
   m_GameObject: {fileID: 8697220186608455803}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 4.2, y: 2.8, z: 1.12}
-  m_LocalScale: {x: 1, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1284292619222776455}
+  - {fileID: 402656286533824463}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -50,32 +81,27 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1798977705505489547}
+    m_TransformParent: {fileID: 402656286533824463}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: cb938484ef8724c4f9fc2d2fadb97358,
-        type: 3}
-      propertyPath: m_Name
-      value: rock_05
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: cb938484ef8724c4f9fc2d2fadb97358,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: cb938484ef8724c4f9fc2d2fadb97358,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -12.96
+      value: -12.960004
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: cb938484ef8724c4f9fc2d2fadb97358,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.24
+      value: -0.23999977
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: cb938484ef8724c4f9fc2d2fadb97358,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.000000566346
+      value: 0.00000056634605
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: cb938484ef8724c4f9fc2d2fadb97358,
         type: 3}
@@ -90,7 +116,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: cb938484ef8724c4f9fc2d2fadb97358,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.0000000026364544
+      value: 0.0000000026364828
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: cb938484ef8724c4f9fc2d2fadb97358,
         type: 3}
@@ -115,17 +141,22 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: cb938484ef8724c4f9fc2d2fadb97358,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 25
+      value: 25.000011
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: cb938484ef8724c4f9fc2d2fadb97358,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 25
+      value: 25.000015
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: cb938484ef8724c4f9fc2d2fadb97358,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 25
+      value: 25.000015
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: cb938484ef8724c4f9fc2d2fadb97358,
+        type: 3}
+      propertyPath: m_Name
+      value: rock_05
       objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: cb938484ef8724c4f9fc2d2fadb97358,
         type: 3}
