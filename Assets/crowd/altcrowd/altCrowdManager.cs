@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 public class altCrowdManager : MonoBehaviour
 {
     [SerializeField] private Vector2 crowdPresentDuration = new Vector2(5f, 10f);
-    [SerializeField] private Vector2 crowdAbsentDuration = new Vector2(10f, 20f);
+    [SerializeField] private Vector2 crowdAbsentDuration = new Vector2(15f, 20f);
     [SerializeField] private float crowdMoveSpeed = 2f;
     private Transform[] crowdSprite = new Transform[2];
     [SerializeField] private float acceptableAverage = 0.00015f;
@@ -29,6 +29,11 @@ public class altCrowdManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (timer <= 3 && timer > 0 && !crowdAbsent)
+        {
+            stars.showWarning();
+        }
+        
         if (timer <= 0)
         {
             crowdAbsent = !crowdAbsent;
@@ -52,6 +57,8 @@ public class altCrowdManager : MonoBehaviour
                 Array.Clear(backdropSpeeds, 0, backdropSpeeds.Length);
                 backdropSpeeds = new float[0];
             }
+
+            stars.hideWarning();
         }
         else timer -= Time.deltaTime;
 

@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="25b6e037-17e6-4058-b868-40e1401667ee" name="Default Changelist" comment="" />
+    <list default="true" id="25b6e037-17e6-4058-b868-40e1401667ee" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.CGDProject2/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CGDProject2/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.CGDProject2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CGDProject2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/crowd/altcrowd/altCrowdManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/crowd/altcrowd/altCrowdManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/crowd/altcrowd/starRatings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/crowd/altcrowd/starRatings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/resources.meta" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,19 +19,16 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Player/Head.prefab" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/crowd/altcrowd/starRatings.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Player/Hand.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scenes/Game.unity" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/props/Prop.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Player/Head.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/menuscript/OutcomeManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/props/Hazard/HazardMove.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Cart/CartHandle.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/menuscript/MenuManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Cart/BackdropSlider.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/crowd/altcrowd/altCrowdManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/props/Hazard/HazardMove.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Player/Hand.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Cart/CartHandle.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Cart/BackdropSlider.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/props/Prop.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/crowd/CrowdManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Player/Head.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/crowd/altcrowd/starRatings.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -33,16 +37,10 @@
         <option value="$PROJECT_DIR$/Assets/HandleCarPosManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/Hand.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/Head.cs" />
-        <option value="$PROJECT_DIR$/Assets/props/Hazard/HazardMove.cs" />
-        <option value="$PROJECT_DIR$/Assets/roator.cs" />
-        <option value="$PROJECT_DIR$/Assets/menu.cs" />
-        <option value="$PROJECT_DIR$/Assets/buttoncontroller.cs" />
-        <option value="$PROJECT_DIR$/Assets/menuscript/CanvasManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/menuscript/OutcomeManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/menuscript/MenuManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Cart/BackdropSlider.cs" />
-        <option value="$PROJECT_DIR$/Assets/crowd/altcrowd/altCrowdManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/props/Hazard/HazardMove.cs" />
         <option value="$PROJECT_DIR$/Assets/crowd/altcrowd/starRatings.cs" />
+        <option value="$PROJECT_DIR$/Assets/crowd/altcrowd/altCrowdManager.cs" />
       </list>
     </option>
   </component>
@@ -89,11 +87,9 @@
       <updated>1605359138894</updated>
       <workItem from="1605359174268" duration="7948000" />
       <workItem from="1605368909376" duration="744000" />
-      <workItem from="1605369701874" duration="4012000" />
-      <workItem from="1605404078918" duration="606000" />
-      <workItem from="1605441083597" duration="2306000" />
-      <workItem from="1605469225025" duration="5482000" />
-      <workItem from="1605531803894" duration="4583000" />
+      <workItem from="1605369701874" duration="1898000" />
+      <workItem from="1605541717524" duration="240000" />
+      <workItem from="1605542070467" duration="1321000" />
     </task>
     <servers />
   </component>
