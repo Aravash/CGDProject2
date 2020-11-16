@@ -42,10 +42,10 @@ public class CartHandle : MonoBehaviour
         Vector3 projection = new Vector3(
             hand.GetComponent<RectTransform>().position.x,
             hand.GetComponent<RectTransform>().position.y,
-            gameObject.transform.position.z - Camera.main.transform.position.z);
+            gameObject.transform.position.z);
 
         Vector3 handle_root = calculateHandleRoot(false);
-        Vector3 diff = (projection - handle_root);
+        Vector3 diff = projection - handle_root;
 
         if (diff.magnitude > MAX_PULL)
             diff *= MAX_PULL / diff.magnitude;
