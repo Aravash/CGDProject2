@@ -1160,7 +1160,7 @@ PrefabInstance:
     - target: {fileID: 7164705867780951128, guid: 9c41cb01ba6e8e34589ea19459a6acca,
         type: 3}
       propertyPath: IOwnAController
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c41cb01ba6e8e34589ea19459a6acca, type: 3}
@@ -3166,7 +3166,7 @@ PrefabInstance:
     - target: {fileID: 4265531335453705997, guid: 68e2da7be1d376442924db503a4d8baf,
         type: 3}
       propertyPath: IOwnAController
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7164705867780951124, guid: 68e2da7be1d376442924db503a4d8baf,
         type: 3}
@@ -4204,7 +4204,9 @@ MonoBehaviour:
   crowdPresentDuration: {x: 5, y: 10}
   crowdAbsentDuration: {x: 10, y: 20}
   crowdMoveSpeed: 5
+  acceptableAverage: 0.0002
   timer: 0
+  slider: {fileID: 470221529}
 --- !u!4 &2068535983
 Transform:
   m_ObjectHideFlags: 0
