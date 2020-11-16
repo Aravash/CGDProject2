@@ -19,8 +19,13 @@ public class Head : MonoBehaviour
         Vector2 wish_dir = new Vector2(0, 0);
         if (IOwnAController)
         {
-            wish_dir.x += Input.GetAxis("RHorizontal" + id);
-            wish_dir.y += Input.GetAxis("RVertical" + id);
+            float t = new Vector2(Input.GetAxisRaw("RHorizontal" + id), Input.GetAxisRaw("RVertical" + id)).magnitude;
+            if (t > 0.15f)
+            {
+                wish_dir.x += Input.GetAxis("RHorizontal" + id);
+                wish_dir.y += Input.GetAxis("RVertical" + id);                
+            }           
+            
         }
         else
         {

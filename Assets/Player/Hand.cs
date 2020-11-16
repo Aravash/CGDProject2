@@ -55,8 +55,13 @@ public class Hand : MonoBehaviour
         Vector2 wish_dir = new Vector2(0, 0);
         if (IOwnAController)
         {
-            wish_dir.x += Input.GetAxis("LHorizontal" + id);
-            wish_dir.y += Input.GetAxis("LVertical" + id);
+            float t = new Vector2(Input.GetAxisRaw("LHorizontal" + id), Input.GetAxisRaw("LVertical" + id)).magnitude;
+            if (t > 0.15f)
+            {
+                wish_dir.x += Input.GetAxis("LHorizontal" + id);
+                wish_dir.y += Input.GetAxis("LVertical" + id);
+            }
+
         }
         else
         {
