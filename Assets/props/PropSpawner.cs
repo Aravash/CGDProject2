@@ -35,7 +35,11 @@ public class PropSpawner : MonoBehaviour
             // Generate new prop position
             float spawnPlaneLPos = spawnPlaneCol.bounds.min.x;
             float spawnPlaneRPos = spawnPlaneCol.bounds.max.x;
-            Vector3 newPropPos = new Vector3(Random.Range(spawnPlaneLPos, spawnPlaneRPos), transform.position.y);
+            float spawnPlaneFPos = spawnPlaneCol.bounds.min.z;
+            float spawnPlaneBPos = spawnPlaneCol.bounds.max.z;
+            Vector3 newPropPos = new Vector3(Random.Range(spawnPlaneLPos, spawnPlaneRPos),
+                                             transform.position.y + propHeightDelay,
+                                             Random.Range(spawnPlaneFPos, spawnPlaneBPos));
 
             SpawnIncomingIndicator(newPropPos);
             SpawnProp(newPropPos);
@@ -50,8 +54,7 @@ public class PropSpawner : MonoBehaviour
     void SpawnProp(Vector3 newPropPos)
     {
         GameObject newProp = Instantiate(Resources.Load("props/ExampleProp")) as GameObject;
-        Vector3 heightenedNewPropPos = new Vector3(newPropPos.x, newPropPos.y + propHeightDelay, newPropPos.z);
-        newProp.transform.position = heightenedNewPropPos;
+        newProp.transform.position = newPropPos;
         newProp.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
     }
 
