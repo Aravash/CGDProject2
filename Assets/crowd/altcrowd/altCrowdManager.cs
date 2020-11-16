@@ -14,6 +14,7 @@ public class altCrowdManager : MonoBehaviour
     private bool crowdAbsent = false;
     [SerializeField]private float timer;
 
+    [SerializeField] private starRatings stars;
     [SerializeField] private BackdropSlider slider;
     private float[] backdropSpeeds = new float[0];
     
@@ -41,8 +42,13 @@ public class altCrowdManager : MonoBehaviour
                 if (speedAcceptable())
                 {
                     Debug.Log("the speed was acceptable this wave");
+                    stars.changeActiveStars(1);
                 }
-                else Debug.Log("the speed was UNACCEPTABLE!!! this wave");
+                else
+                {
+                    Debug.Log("the speed was UNACCEPTABLE!!! this wave");
+                    stars.changeActiveStars(-1);
+                }
                 Array.Clear(backdropSpeeds, 0, backdropSpeeds.Length);
                 backdropSpeeds = new float[0];
             }
