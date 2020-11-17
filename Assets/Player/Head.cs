@@ -108,6 +108,10 @@ public class Head : MonoBehaviour
         {
             newDamage = 30;
         }
+        else if(newDamage < 10)
+        {
+            newDamage = 10;
+        }
         HealthM.GetComponent<HealthManager>().ChangeHP(Mathf.Floor(newDamage), input_id);
         //Debug.Log(newDamage);
     }

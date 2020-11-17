@@ -11,31 +11,45 @@ public class Prop : MonoBehaviour
     Transform hand;
 
     GameObject head;
-
+    GameObject Spawner;
     int playerId = 2;
+
+    private float currentTime;
+    private float maxTime = 10.0f;
 
     // Start is called before the first frame update
     void Start()
     {
         head = GameObject.FindGameObjectWithTag("HeadTarget");
+        Spawner = GameObject.Find("PropSpawner");
+        currentTime = 0.0f;
         // If grounded, spawn low, update velocity with each change of cart speed
         // If not grounded, spawn above
     }
 
     private void Update()
     {
+        if(!grounded)
+        {
+            currentTime = 5.0f;
+        }
+        else
+        {
+            currentTime += Time.deltaTime;
+        }
+
+        Timer();
     }
     
     private void FixedUpdate()
     {
-        if(grounded)
+        if(hand == null)
         {
-            //float vel = GetComponent<Rigidbody>().velocity;
-            //vel.x = TODO: fetch cart speed
-            //GetComponent<Rigidbody>().velocity = vel;
+            grounded = true;
         }
-        if (hand != null)
+        else if (hand != null)
         {
+            grounded = false;
             //var projection = ;//new Vector3(
                 //hand.GetComponent<RectTransform>().position.x,
                 //hand.GetComponent<RectTransform>().position.y,
@@ -48,6 +62,14 @@ public class Prop : MonoBehaviour
         }
     }
 
+    private void Timer()
+    {
+        if (currentTime >= maxTime)
+        {
+            StartCoroutine("DeathDelay");
+            currentTime = 0.0f;
+        }
+    }
     public void grab(Transform grabber, int id)
     {
         playerId = id;
@@ -67,6 +89,7 @@ public class Prop : MonoBehaviour
         if (collision.collider.tag == "P1Head" && playerId == 1 || collision.collider.tag == "P2Head" && playerId == 0)
         {
             head.GetComponent<Head>().bonk(collision.impulse.magnitude, playerId);
+            Spawner.GetComponent<PropSpawner>().changeSpawned(1);
             StartCoroutine("DeathDelay");
         }
 

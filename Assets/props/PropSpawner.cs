@@ -7,14 +7,17 @@ public class PropSpawner : MonoBehaviour
     public RectTransform canvasRect;
     public Camera cam;
 
-    public float propMinSpawnDelay;
-    public float propMaxSpawnDelay;
+    public float propMinSpawnDelay = 3f;
+    public float propMaxSpawnDelay = 6f;
     public float indicatorHeightPos;
     public float propHeightDelay;
 
     private BoxCollider spawnPlaneCol;
     private float timer;
     private float nextPropDelay;
+
+    private int currentSpawned;
+    private int maxSpawned = 6;
     
     void Start()
     {
@@ -53,9 +56,14 @@ public class PropSpawner : MonoBehaviour
 
     void SpawnProp(Vector3 newPropPos)
     {
-        GameObject newProp = Instantiate(Resources.Load("props/ExampleProp")) as GameObject;
-        newProp.transform.position = newPropPos;
-        newProp.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
+        GameObject newProp;
+        if (currentSpawned <= maxSpawned)
+        {
+            newProp = Instantiate(Resources.Load("props/ExampleProp")) as GameObject;
+            newProp.transform.position = newPropPos;
+            newProp.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
+            currentSpawned++;
+        }
     }
 
     void SpawnIncomingIndicator(Vector3 newPropPos)
@@ -71,5 +79,10 @@ public class PropSpawner : MonoBehaviour
             (viewportPosition.y * canvasRect.sizeDelta.y) - (canvasRect.sizeDelta.y * 0.5f) + indicatorHeightPos);
 
         newIndicatorRect.anchoredPosition = onScreenPosition;
+    }
+
+    public void changeSpawned(int remove)
+    {
+        currentSpawned -= remove;
     }
 }
