@@ -104,9 +104,13 @@ public class Head : MonoBehaviour
         float newDamage;
         newDamage = impluse * impluse;
 
-        if(newDamage > 30)
+        if(newDamage > 35)
         {
-            newDamage = 30;
+            newDamage = 35;
+        }
+        else if(newDamage < 20)
+        {
+            newDamage = 20;
         }
         HealthM.GetComponent<HealthManager>().ChangeHP(Mathf.Floor(newDamage), input_id);
         //Debug.Log(newDamage);
