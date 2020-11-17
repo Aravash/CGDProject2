@@ -53,9 +53,16 @@ public class PropSpawner : MonoBehaviour
 
     void SpawnProp(Vector3 newPropPos)
     {
-        GameObject newProp = Instantiate(Resources.Load("props/ExampleProp")) as GameObject;
+        int prop = Random.Range(0, 3);
+        string name = "CrateProp";
+        switch (prop)
+        {
+            case(0): name = "CrateProp"; break;
+            case(1): name = "co2w"; break;
+            case(2): name = "PropPickaxe"; break;
+        }
+        GameObject newProp = Instantiate(Resources.Load("props/"+name)) as GameObject;
         newProp.transform.position = newPropPos;
-        newProp.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
     }
 
     void SpawnIncomingIndicator(Vector3 newPropPos)

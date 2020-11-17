@@ -22,7 +22,7 @@ public class OutcomeManager : MonoBehaviour
      */
     public void callWin(string playername)
     {
-        Time.timeScale = 0.4f;
+        Time.timeScale = 0.0f;
         transform.GetChild(0).gameObject.SetActive(true);
         transform.GetChild(0).GetChild(0).GetComponent<Text>().text =
             "Hoo Doggy!\n" + playername + " gets to keep their job!";
