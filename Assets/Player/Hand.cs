@@ -9,6 +9,12 @@ public class Hand : MonoBehaviour
     const float MV_FRICTION = 1f;
     const float RADIUS = 0.8f;
 
+    [SerializeField][Range(0.01f, 0.2f)]
+    public float MX_DIST_TO_HAND = .1f;
+    [SerializeField] private Transform leash;
+    public bool isLeashed = true;
+
+
     [SerializeField] private bool IOwnAController = false;
 
     [SerializeField] int id = 0; // 0 = left, 1 = right
@@ -79,6 +85,12 @@ public class Hand : MonoBehaviour
         gameObject.GetComponent<Rigidbody2D>().velocity += acceleration;
 
         // TODO: Update the IK to match new position
+	if(isLeashed){
+        // Leash Target back to hand
+	var delta = transform.position-leash.position;
+	if(delta.magnitude > MX_DIST_TO_HAND)
+	{transform.position = leash.position + delta.normalized * MX_DIST_TO_HAND;}
+	}
     }
 
 
