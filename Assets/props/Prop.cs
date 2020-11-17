@@ -66,6 +66,7 @@ public class Prop : MonoBehaviour
     {
         if (currentTime >= maxTime)
         {
+            Spawner.GetComponent<PropSpawner>().changeSpawned(1);
             StartCoroutine("DeathDelay");
             currentTime = 0.0f;
         }
