@@ -23,7 +23,8 @@ public class HealthManager : MonoBehaviour
     float currentP1HP;
     float currentP2HP;
 
-    [SerializeField] private OutcomeManager outcome;
+    GameObject outcome;
+    GameObject starRating;
 
 
     void Start()
@@ -39,6 +40,9 @@ public class HealthManager : MonoBehaviour
         imageP2 = GameObject.Find("FillP2").GetComponent<Image>();
         P1Medic = GameObject.Find("P1").GetComponent<Image>();
         P2Medic = GameObject.Find("P2").GetComponent<Image>();
+
+        outcome = GameObject.Find("Outcomes");
+        starRating = GameObject.Find("StarRatings");
         SetHPBars();
     }
 
@@ -64,6 +68,7 @@ public class HealthManager : MonoBehaviour
 
     public void ChangeHP(float damage, int player_id)
     {
+        checkEndGame();
         if (player_id == 0)
         {
             currentP2HP -= damage;
@@ -72,7 +77,7 @@ public class HealthManager : MonoBehaviour
             P2Medic.color = imageP2.color;
             if (currentP2HP <= 0)
             {
-                outcome.callWin("Player 1");
+                outcome.GetComponent<OutcomeManager>().callWin("Player 1");
             }
         }
         if (player_id == 1)
@@ -83,18 +88,18 @@ public class HealthManager : MonoBehaviour
             P1Medic.color = imageP1.color;
             if (currentP1HP <= 0)
             {
-                outcome.callWin("Player 2");
+                outcome.GetComponent<OutcomeManager>().callWin("Player 2");
             }
         }
     }
 
-    public bool checkEndGame()
+    public void checkEndGame()
     {
         if (currentP1HP <= 0 || currentP2HP <= 0)
         {
-            return true;
+            starRating.GetComponent<starRatings>().hideWarning();
         }
-        return false;
+        return;
     }
 
     public float GetCurrentP1HP()
