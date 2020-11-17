@@ -9,10 +9,20 @@ public class BackdropSlider : MonoBehaviour
     private new Renderer renderer;
     float speed = 0;
 
+    [SerializeField]private Vector2 SpawnTimerRange = new Vector2(.5f, 1.5f);
+    private float spawnTimer;
+    [SerializeField] private GameObject hazardObj1;
+    [SerializeField] private GameObject hazardObj2;
+    [SerializeField] private GameObject hazardObj3;
+    private Vector3 hazardSpawnPos;
+    private HazardMove hazard = null;
+
     // Start is called before the first frame update
     void Start()
     {
         renderer = GetComponent<Renderer>();
+        hazardSpawnPos = transform.GetChild(0).transform.position;
+        spawnTimer = Random.Range(SpawnTimerRange.x, SpawnTimerRange.y);
     }
 
     private void Update()
@@ -20,9 +30,39 @@ public class BackdropSlider : MonoBehaviour
         applyFriction();
         float tempx = renderer.material.mainTextureOffset.x;
         renderer.material.mainTextureOffset = new Vector2(tempx += speed * Time.deltaTime, 0);
-        //Debug.Log("SPEED: " + speed);
+
+        hazardBusiness();
     }
 
+    void hazardBusiness()
+    {
+        if (!hazard)
+        {
+            if (spawnTimer <= 0)
+            {
+                int random = Random.Range(1, 4);
+                switch (random)
+                {
+                    case 1:
+                        hazard = Instantiate(hazardObj1, hazardSpawnPos, Quaternion.identity).GetComponent<HazardMove>();
+                        break;
+                    case 2:
+                        hazard = Instantiate(hazardObj2, hazardSpawnPos, Quaternion.identity).GetComponent<HazardMove>();
+                        break;
+                    case 3:
+                        hazard = Instantiate(hazardObj3, hazardSpawnPos, Quaternion.identity).GetComponent<HazardMove>();
+                        break;
+                    default:
+                        hazard = Instantiate(hazardObj1, hazardSpawnPos, Quaternion.identity).GetComponent<HazardMove>();
+                        break;
+                }
+                spawnTimer = Random.Range(SpawnTimerRange.x, SpawnTimerRange.y);
+            }
+            else spawnTimer -= speed * Time.deltaTime;
+        }
+        else hazard.Move(speed * Time.deltaTime);
+    }
+    
     // Accel value is based on the cart handle's rotation delta
     float debug_high = 0;
     public void accelerate(float accel)

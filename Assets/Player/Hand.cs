@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class Hand : MonoBehaviour
 {
-    const float MV_MAX_SPEED = .1f;
-    const float MV_ACCEL = 5f;
+    const float MV_MAX_SPEED = 5f;
+    const float MV_ACCEL = 10f;
     const float MV_FRICTION = 1f;
     const float RADIUS = 0.8f;
+
 
     [SerializeField][Range(0.01f, 0.2f)]
     public float MX_DIST_TO_HAND = .1f;
     [SerializeField] private Transform leash;
     public bool isLeashed = true;
-
-
-    [SerializeField] private bool IOwnAController = false;
+    
+    [SerializeField] private bool IOwnAController = true;
+    
 
     [SerializeField] int id = 0; // 0 = left, 1 = right
 
@@ -129,7 +130,7 @@ public class Hand : MonoBehaviour
         LayerMask lm = 0;
         //lm |= 1 << 9;
         lm = LayerMask.GetMask("grabbable");
-        Debug.DrawRay(transform.position, ray.direction * 30, Color.white, 3);
+        Debug.DrawRay(Camera.main.transform.position, ray.direction * 30, Color.white, 3);
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, lm))
         {
             grabbed_something = true;

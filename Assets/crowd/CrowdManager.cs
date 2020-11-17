@@ -5,12 +5,15 @@ using UnityEngine.UI;
 
 public class CrowdManager : MonoBehaviour
 {
+    [SerializeField] bool DEBUG_MESSAGES_A = false;
+    [SerializeField] bool DEBUG_MESSAGES_B = false;
     // Needs to be a MonoBehaviour singleton, because it utilizes unity's Update()
-    static CrowdManager _i;
+    public static CrowdManager _i;
 
     const int MAX_CROWD = 6;
     int num_onlookers = 0;
     float event_cooldown;
+    List<GameObject> crowd;
 
     const float SUSP_DECAY = 1f;
     const float SUSP_LIMIT = 100f;
@@ -32,6 +35,7 @@ public class CrowdManager : MonoBehaviour
     
     void Start()
     {
+        crowd = new List<GameObject>();
         backdrop = FindObjectOfType<BackdropSlider>();
         susp_bar = GameObject.Find("Susp_bar").GetComponent<Slider>();
         susp_bar.maxValue = SUSP_LIMIT;
@@ -51,9 +55,7 @@ public class CrowdManager : MonoBehaviour
     void crowdSpawnEvent()
     {
         float intensity = Mathf.Sin(Time.time * 0.1f);
-        Debug.Log("Intensity: " + intensity);
         float rng = gaussDistribution();
-        Debug.Log("rng: " + rng);
         rng += intensity;
         if (rng > 0)
         {
@@ -72,20 +74,44 @@ public class CrowdManager : MonoBehaviour
             new_cd = Random.Range(0.3f, 5);
         }
         event_cooldown = new_cd;
-        Debug.Log("CD: " + event_cooldown);
+        if(DEBUG_MESSAGES_A)
+        {
+            Debug.Log("Intensity: " + intensity);
+            Debug.Log("rng: " + rng);
+            Debug.Log("CD: " + event_cooldown);
+        }
     }
     void increment()
     {
+        if (num_onlookers == MAX_CROWD)
+            return;
         num_onlookers++;
-        if (num_onlookers > MAX_CROWD)
-            num_onlookers = MAX_CROWD;
-        Debug.Log("SPAWN: " + num_onlookers);
+
+        if (DEBUG_MESSAGES_B)
+        {
+            Debug.Log("SPAWN: " + num_onlookers);
+        }
+
+        crowd.Add(Instantiate(Resources.Load("crowd_member") as GameObject));
     }
     void decrement()
     {
-        if (num_onlookers > 0)
-            num_onlookers--;
-        Debug.Log("DSPWN: " + num_onlookers);
+        if (num_onlookers == 0)
+            return;
+        int id = Random.Range(0, (crowd.Count - 1));
+        if (DEBUG_MESSAGES_B)
+        {
+            Debug.Log("DSPWN: " + num_onlookers);
+            Debug.Log("DSID: " + id);
+        }
+        GameObject member = crowd[id];
+        member.GetComponent<CrowdMember>().leave();
+    }
+    public void decreaseCount(GameObject member)
+    {
+        num_onlookers--;
+        crowd.Remove(member);
+        Destroy(member);
     }
     // Random number in a normal distribution -1 to 1
     float gaussDistribution()
@@ -125,6 +151,8 @@ public class CrowdManager : MonoBehaviour
 
         if (suspicion >= SUSP_LIMIT)
         {
+            suspicion = SUSP_LIMIT; // only for debugging!
+
             // TODO: GAME OVER
             //Debug.Log("EXHIBIT CLOSED");
             //Debug.Log("GAME OVER, EVERYBODY LOSES!");

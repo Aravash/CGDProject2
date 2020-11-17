@@ -57,6 +57,7 @@ public class CartHandle : MonoBehaviour
 
     Vector3 debugA;
     Vector3 debugB;
+    
     private void pull(bool right_hand)
     {
 	

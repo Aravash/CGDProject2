@@ -6,19 +6,32 @@
     <e p="C:\Users\jacob\Documents\gameEngineProjects\Unity Projects\CGD\CGDProject2" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="BirdBob.cs" t="Include" />
         <e p="Cart" t="Include">
           <e p="BackdropSlider.cs" t="Include" />
           <e p="CartHandle.cs" t="Include" />
         </e>
         <e p="crowd" t="Include">
           <e p="CrowdManager.cs" t="Include" />
+          <e p="CrowdMember.cs" t="Include" />
         </e>
         <e p="Player" t="Include">
           <e p="Hand.cs" t="Include" />
           <e p="Head.cs" t="Include" />
         </e>
         <e p="props" t="Include">
+          <e p="Hazard" t="Include">
+            <e p="HazardMove.cs" t="Include" />
+          </e>
           <e p="Prop.cs" t="Include" />
+          <e p="PropIndicatorAnimations.cs" t="Include" />
+          <e p="PropSpawner.cs" t="Include" />
+        </e>
+        <e p="resources" t="Include">
+          <e p="LerpBack.cs" t="Include" />
+          <e p="players" t="Include">
+            <e p="SimpleIK.cs" t="Include" />
+          </e>
         </e>
       </e>
       <e p="CGDProject2.sln" t="IncludeFlat" />
