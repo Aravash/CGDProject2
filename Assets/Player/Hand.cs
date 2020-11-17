@@ -17,6 +17,8 @@ public class Hand : MonoBehaviour
 
     [SerializeField] int id = 0; // 0 = left, 1 = right
 
+    [SerializeField] Sprite open_hand;[SerializeField] Sprite grab_hand;
+
     bool grabbed_something = false;
     GameObject held_prop;
     GameObject held_bar;
@@ -87,8 +89,9 @@ public class Hand : MonoBehaviour
         // Leash Target back to hand
 	var delta = transform.position-leash.position;
 	if(delta.magnitude > MX_DIST_TO_HAND)
-	{transform.position = leash.position + delta.normalized * MX_DIST_TO_HAND;}
+	{transform.position = leash.position + delta.normalized * MX_DIST_TO_HAND + new Vector3(0,0,-1);}
 	}
+
     }
 
 
@@ -148,6 +151,8 @@ public class Hand : MonoBehaviour
                 // gameObject.transform.parent = other.transform;
                 other.GetComponent<CartHandle>().grab(gameObject.transform, id);
             }
+
+	    gameObject.GetComponent<SpriteRenderer>().sprite = grab_hand;
         }
 
 	}
@@ -164,5 +169,6 @@ public class Hand : MonoBehaviour
             held_bar = null;
         }
         grabbed_something = false;
+	gameObject.GetComponent<SpriteRenderer>().sprite = open_hand;
     }
 }
