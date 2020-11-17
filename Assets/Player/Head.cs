@@ -104,7 +104,9 @@ public class Head : MonoBehaviour
         float newDamage;
         newDamage = impluse * impluse;
 
-        if(newDamage > 35)
+        GetComponent<AudioSource>().Play();
+
+        if (newDamage > 35)
         {
             newDamage = 35;
         }
