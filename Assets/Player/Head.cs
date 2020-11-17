@@ -119,8 +119,14 @@ public class Head : MonoBehaviour
 
         if(newDamage > 30)
         {
-            newDamage = 30;
+            newDamage = 35;
         }
+        else if (newDamage < 10)
+        {
+            newDamage = 10;
+        }
+            
+        gameObject.GetComponent<AudioSource>().Play();
         HealthM.GetComponent<HealthManager>().ChangeHP(Mathf.Floor(newDamage), input_id);
         //Debug.Log(newDamage);
     }
