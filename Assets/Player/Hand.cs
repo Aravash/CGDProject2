@@ -5,10 +5,14 @@ using UnityEngine;
 public class Hand : MonoBehaviour
 {
     const float MV_MAX_SPEED = 5f;
-    const float MV_ACCEL = 500f;
+    const float MV_ACCEL = 150f;
     const float MV_FRICTION = 1f;
     const float RADIUS = 0.8f;
 
+    [SerializeField][Range(0.01f, 0.2f)]
+    public float MX_DIST_TO_HAND = .1f;
+    [SerializeField] private Transform leash;
+    public bool isLeashed = true;
     [SerializeField] private bool IOwnAController = true;
 
     [SerializeField] int id = 0; // 0 = left, 1 = right
@@ -73,12 +77,18 @@ public class Hand : MonoBehaviour
         }
 
         // Convert input to movement
-        Vector2 acceleration = wish_dir;
+        Vector2 acceleration = wish_dir * Time.deltaTime;
         acceleration.x *= MV_ACCEL;
         acceleration.y *= MV_ACCEL;
         gameObject.GetComponent<Rigidbody2D>().velocity += acceleration;
 
         // TODO: Update the IK to match new position
+	if(isLeashed){
+        // Leash Target back to hand
+	var delta = transform.position-leash.position;
+	if(delta.magnitude > MX_DIST_TO_HAND)
+	{transform.position = leash.position + delta.normalized * MX_DIST_TO_HAND;}
+	}
     }
 
 
@@ -109,8 +119,11 @@ public class Hand : MonoBehaviour
     void grab()
     {
         RaycastHit hit;
-        Ray ray = Camera.main.ScreenPointToRay(gameObject.GetComponent<RectTransform>().position);
-
+		
+		var pos = transform.position;
+		pos.z = -999;
+        var ray = new Ray(pos, Vector3.forward);//Camera.main.ScreenPointToRay(gameObject.GetComponent<RectTransform>().position);
+		
         LayerMask lm = 0;
         //lm |= 1 << 9;
         lm = LayerMask.GetMask("grabbable");
@@ -127,7 +140,7 @@ public class Hand : MonoBehaviour
             if (other.GetComponent<Prop>() != null)
             {
                 held_prop = other;
-                other.GetComponent<Prop>().grab(gameObject.transform);
+                other.GetComponent<Prop>().grab(gameObject.transform, id);
             }
             if (other.GetComponent<CartHandle>())
             {
@@ -136,7 +149,8 @@ public class Hand : MonoBehaviour
                 other.GetComponent<CartHandle>().grab(gameObject.transform, id);
             }
         }
-    }
+
+	}
     void release()
     {
         if (held_prop != null)

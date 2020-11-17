@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Player1_HPBar
+  - Player2_HPBar
+  - P1Head
+  - P2Head
+  - HeadTarget
+  - HealthManager
   layers:
   - Default
   - TransparentFX

@@ -1,20 +1,35 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Head : MonoBehaviour
 {
-    const float MV_ACCEL = 500f;
+    const float MV_ACCEL = 120f;
     const float MV_FRICTION = 1f;
     
     [SerializeField] private bool IOwnAController = true;
     
+
+    float damageMulti = 3f;
+
     [SerializeField] int id = 0; // 0 = left, 1 = right
 
+    Transform head;
+
+    GameObject HealthM; //Opposite player ref
+
+    private void Start()
+    {
+        HealthM = GameObject.FindGameObjectWithTag("HealthManager");
+
+ 
+        //setHealth();
+    }
     private void FixedUpdate()
     {
         applyFriction();
-
+        //Test();
         // Fetch user directional input
         Vector2 wish_dir = new Vector2(0, 0);
         if (IOwnAController)
@@ -36,12 +51,30 @@ public class Head : MonoBehaviour
         }
 
         // Convert input to movement
-        Vector2 acceleration = wish_dir;
+        Vector2 acceleration = wish_dir * Time.deltaTime;
         acceleration.x *= MV_ACCEL;
         acceleration.y *= MV_ACCEL;
         gameObject.GetComponent<Rigidbody2D>().velocity += acceleration;
+
+    }
+
+    private void Test()
+    {
+        Vector3 projection = new Vector3(GetComponent<RectTransform>().position.x, GetComponent<RectTransform>().position.y, -Camera.main.transform.position.z);
+        Vector3 diff = Camera.main.ScreenToWorldPoint(projection);
+        
+        Gizmos.DrawWireSphere(diff, 0.1f);
+
+        //Debug.Log(diff);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        //Test();
     }
     
+    //iS THIS BEST WAY? LOOK INTO
     private void applyFriction()
     {
         Vector2 vel = gameObject.GetComponent<Rigidbody2D>().velocity;
@@ -65,4 +98,19 @@ public class Head : MonoBehaviour
         vel.y *= newspeed;
         gameObject.GetComponent<Rigidbody2D>().velocity = vel;
     }
+
+    public void bonk(float impluse, int input_id)
+    {
+        float newDamage;
+        newDamage = impluse * impluse;
+
+        if(newDamage > 30)
+        {
+            newDamage = 30;
+        }
+        HealthM.GetComponent<HealthManager>().ChangeHP(Mathf.Floor(newDamage), input_id);
+        //Debug.Log(newDamage);
+    }
 }
+
+
