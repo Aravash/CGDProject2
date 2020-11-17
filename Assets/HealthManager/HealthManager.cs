@@ -23,6 +23,8 @@ public class HealthManager : MonoBehaviour
     float currentP1HP;
     float currentP2HP;
 
+    [SerializeField] private OutcomeManager outcome;
+
 
     void Start()
     {
@@ -68,6 +70,10 @@ public class HealthManager : MonoBehaviour
             P2HPBar.value = currentP2HP;
             imageP2.color = gradient.Evaluate(P2HPBar.normalizedValue);
             P2Medic.color = imageP2.color;
+            if (currentP2HP <= 0)
+            {
+                outcome.callWin("Player 1");
+            }
         }
         if (player_id == 1)
         {
@@ -75,6 +81,10 @@ public class HealthManager : MonoBehaviour
             P1HPBar.value = currentP1HP;
             imageP1.color = gradient.Evaluate(P1HPBar.normalizedValue);
             P1Medic.color = imageP1.color;
+            if (currentP1HP <= 0)
+            {
+                outcome.callWin("Player 2");
+            }
         }
     }
 
