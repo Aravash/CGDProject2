@@ -58,7 +58,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 8384a4ffdf0cd5f45a7a3f35e9d5bcad, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -231,7 +231,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 8384a4ffdf0cd5f45a7a3f35e9d5bcad, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -365,6 +365,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7322183553267060573}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: a6758ad9ad19fe347983cdaa29476a32,
+        type: 3}
+      propertyPath: m_Name
+      value: birdlowpoly
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: a6758ad9ad19fe347983cdaa29476a32,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -419,11 +424,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: a6758ad9ad19fe347983cdaa29476a32,
-        type: 3}
-      propertyPath: m_Name
-      value: birdlowpoly
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6758ad9ad19fe347983cdaa29476a32, type: 3}
