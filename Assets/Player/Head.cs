@@ -9,7 +9,11 @@ public class Head : MonoBehaviour
     const float MV_FRICTION = 1f;
     
     [SerializeField] private bool IOwnAController = true;
-    
+
+    [SerializeField][Range(0.01f, 0.2f)]
+    public float MX_DIST_TO_HEAD = .1f;
+    [SerializeField] private Transform leash;
+    public bool is_leashed = true;
 
     float damageMulti = 3f;
 
@@ -25,6 +29,15 @@ public class Head : MonoBehaviour
 
  
         //setHealth();
+    }
+    public void Update()
+    {
+	if(is_leashed){
+        // Leash Target back to hand
+	var delta = transform.position-leash.position;
+	if(delta.magnitude > MX_DIST_TO_HEAD )
+	{transform.position = leash.position + delta.normalized * MX_DIST_TO_HEAD ;}
+	}
     }
     private void FixedUpdate()
     {
