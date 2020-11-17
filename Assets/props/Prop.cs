@@ -10,10 +10,14 @@ public class Prop : MonoBehaviour
 
     Transform hand;
 
+    GameObject head;
+
+    int playerId;
 
     // Start is called before the first frame update
     void Start()
     {
+        head = GameObject.FindGameObjectWithTag("HeadTarget");
         // If grounded, spawn low, update velocity with each change of cart speed
         // If not grounded, spawn above
     }
@@ -44,9 +48,12 @@ public class Prop : MonoBehaviour
         }
     }
 
-    public void grab(Transform grabber)
+    public void grab(Transform grabber, int id)
     {
+        playerId = id;
         hand = grabber;
+
+        Debug.Log(id);
     }
     public void release()
     {
@@ -55,8 +62,12 @@ public class Prop : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        // if(collision.collider.GetComponent<Head>() != null)
-        //  collision.collider.GetComponent<Head>().bonk(collision.impulse.magnitude);
+
+        //TODO change this to be cleaner unless implementation changes
+        if (collision.collider.tag == "P1Head" && playerId == 1 || collision.collider.tag == "P2Head" && playerId == 0)
+        {
+            head.GetComponent<Head>().bonk(collision.impulse.magnitude, playerId);
+        }
 
         // if(collision.collider.tag == "conveyor")
         //  grounded = true;

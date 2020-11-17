@@ -5,7 +5,7 @@ using UnityEngine;
 public class Hand : MonoBehaviour
 {
     const float MV_MAX_SPEED = 5f;
-    const float MV_ACCEL = 500f;
+    const float MV_ACCEL = 10f;
     const float MV_FRICTION = 1f;
     const float RADIUS = 0.8f;
 
@@ -109,8 +109,11 @@ public class Hand : MonoBehaviour
     void grab()
     {
         RaycastHit hit;
-        Ray ray = Camera.main.ScreenPointToRay(gameObject.GetComponent<RectTransform>().position);
-
+		
+		var pos = transform.position;
+		pos.z = -999;
+        var ray = new Ray(pos, Vector3.forward);//Camera.main.ScreenPointToRay(gameObject.GetComponent<RectTransform>().position);
+		
         LayerMask lm = 0;
         //lm |= 1 << 9;
         lm = LayerMask.GetMask("grabbable");
@@ -127,7 +130,7 @@ public class Hand : MonoBehaviour
             if (other.GetComponent<Prop>() != null)
             {
                 held_prop = other;
-                other.GetComponent<Prop>().grab(gameObject.transform);
+                other.GetComponent<Prop>().grab(gameObject.transform, id);
             }
             if (other.GetComponent<CartHandle>())
             {
@@ -136,7 +139,8 @@ public class Hand : MonoBehaviour
                 other.GetComponent<CartHandle>().grab(gameObject.transform, id);
             }
         }
-    }
+
+	}
     void release()
     {
         if (held_prop != null)
