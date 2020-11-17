@@ -3,7 +3,17 @@ guid: 2a4fcdbe0e169fb46bb625ee3b61af8e
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dark_grey
+    second: {fileID: 2100000, guid: 6b10a6a320de4b34ab86f7686907fb09, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: glass
+    second: {fileID: 2100000, guid: f65b168ae3590fb498c8bb0e2c24375e, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -68,7 +78,7 @@ ModelImporter:
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips: []
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     serializedVersion: 3
