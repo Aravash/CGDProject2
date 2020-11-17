@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Head : MonoBehaviour
 {
-    const float MV_ACCEL = 10f;
+    const float MV_ACCEL = 120f;
     const float MV_FRICTION = 1f;
     
     [SerializeField] private bool IOwnAController = true;
@@ -51,7 +51,7 @@ public class Head : MonoBehaviour
         }
 
         // Convert input to movement
-        Vector2 acceleration = wish_dir;
+        Vector2 acceleration = wish_dir * Time.deltaTime;
         acceleration.x *= MV_ACCEL;
         acceleration.y *= MV_ACCEL;
         gameObject.GetComponent<Rigidbody2D>().velocity += acceleration;
@@ -101,9 +101,15 @@ public class Head : MonoBehaviour
 
     public void bonk(float impluse, int input_id)
     {
-        HealthM.GetComponent<HealthManager>().ChangeHP(Mathf.Floor(impluse), input_id);
+        float newDamage;
+        newDamage = impluse * impluse;
 
-        Debug.Log(input_id);
+        if(newDamage > 30)
+        {
+            newDamage = 30;
+        }
+        HealthM.GetComponent<HealthManager>().ChangeHP(Mathf.Floor(newDamage), input_id);
+        //Debug.Log(newDamage);
     }
 }
 

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Hand : MonoBehaviour
 {
     const float MV_MAX_SPEED = 5f;
-    const float MV_ACCEL = 10f;
+    const float MV_ACCEL = 150f;
     const float MV_FRICTION = 1f;
     const float RADIUS = 0.8f;
 
@@ -77,7 +77,7 @@ public class Hand : MonoBehaviour
         }
 
         // Convert input to movement
-        Vector2 acceleration = wish_dir;
+        Vector2 acceleration = wish_dir * Time.deltaTime;
         acceleration.x *= MV_ACCEL;
         acceleration.y *= MV_ACCEL;
         gameObject.GetComponent<Rigidbody2D>().velocity += acceleration;

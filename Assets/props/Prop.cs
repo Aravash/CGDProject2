@@ -12,7 +12,7 @@ public class Prop : MonoBehaviour
 
     GameObject head;
 
-    int playerId;
+    int playerId = 2;
 
     // Start is called before the first frame update
     void Start()
@@ -67,9 +67,16 @@ public class Prop : MonoBehaviour
         if (collision.collider.tag == "P1Head" && playerId == 1 || collision.collider.tag == "P2Head" && playerId == 0)
         {
             head.GetComponent<Head>().bonk(collision.impulse.magnitude, playerId);
+            StartCoroutine("DeathDelay");
         }
 
         // if(collision.collider.tag == "conveyor")
         //  grounded = true;
+    }
+
+    IEnumerator DeathDelay()
+    {
+        yield return new WaitForSeconds(.1f);
+        Destroy(gameObject);
     }
 }
