@@ -7,7 +7,7 @@ public class CartHandle : MonoBehaviour
 {
     const float HANDLE_RADIUS = 0.65f;
     const float MAX_PULL = 1;
-    const float PULL_MULTIPLIER = 5;
+    const float PULL_MULTIPLIER = 50;
     Transform hand_L;
     Transform hand_R;
     float old_rot;
@@ -19,15 +19,35 @@ public class CartHandle : MonoBehaviour
         backdrop = FindObjectOfType<BackdropSlider>();
     }
 
+    [SerializeField][Range(0.01f, 0.2f)]
+    public float MX_DIST_TO_HAND = .1f;
+    [SerializeField] private Transform handle_L;
+    [SerializeField] private Transform handle_R;
+    void Update()
+    {
+	if(hand_L){
+        // Leash Target back to hand
+	var delta = hand_L.position-handle_L.position;
+	if(delta.magnitude > MX_DIST_TO_HAND)
+	{hand_L.position = handle_L.position + delta.normalized * MX_DIST_TO_HAND;}
+	}
+	if(hand_R){
+        // Leash Target back to hand
+	var delta = hand_R.position-handle_R.position;
+	if(delta.magnitude > MX_DIST_TO_HAND)
+	{hand_R.position = handle_R.position + delta.normalized * MX_DIST_TO_HAND;}
+	}
+    }
+
     private void FixedUpdate()
     {
         if (hand_L != null)
         {
-            pull(hand_L, false);
+            pull(false);
         }
         if (hand_R != null)
         {
-            pull(hand_R, true);
+            pull(true);
         }
         // Control the background
         float delta = Mathf.Abs(transform.rotation.x - old_rot);
@@ -37,14 +57,17 @@ public class CartHandle : MonoBehaviour
 
     Vector3 debugA;
     Vector3 debugB;
-    private void pull(Transform hand, bool right_hand)
+    private void pull(bool right_hand)
     {
+	
+	var hand = right_hand ? hand_R : hand_L;
+
         Vector3 projection = new Vector3(
             hand.GetComponent<RectTransform>().position.x,
             hand.GetComponent<RectTransform>().position.y,
             gameObject.transform.position.z);
 
-        Vector3 handle_root = calculateHandleRoot(false);
+        Vector3 handle_root = calculateHandleRoot(right_hand);
         Vector3 diff = projection - handle_root;
 
         if (diff.magnitude > MAX_PULL)
