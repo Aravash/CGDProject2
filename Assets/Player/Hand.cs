@@ -137,6 +137,7 @@ public class Hand : MonoBehaviour
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, lm))
         {
             grabbed_something = true;
+            GetComponent<AudioSource>().Play();
             GameObject other = hit.transform.gameObject;
             Debug.Log(other.gameObject.name);
             //if(other.GetComponent<Head>())
