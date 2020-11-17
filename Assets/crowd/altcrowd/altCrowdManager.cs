@@ -17,6 +17,10 @@ public class altCrowdManager : MonoBehaviour
     [SerializeField] private starRatings stars;
     [SerializeField] private BackdropSlider slider;
     private float[] backdropSpeeds = new float[0];
+
+    public AudioClip boo;
+    public AudioClip applause;
+    public AudioClip hmm;
     
     // Start is called before the first frame update
     void Start()
@@ -40,6 +44,7 @@ public class altCrowdManager : MonoBehaviour
             if (crowdAbsent)
             {
                 timer = Random.Range(crowdPresentDuration.x, crowdPresentDuration.y);
+                GetComponent<AudioSource>().PlayOneShot(hmm, 0.5f);
             }
             else
             {
@@ -47,11 +52,13 @@ public class altCrowdManager : MonoBehaviour
                 if (speedAcceptable())
                 {
                     Debug.Log("the speed was acceptable this wave");
+                    GetComponent<AudioSource>().PlayOneShot(applause, 0.5f);
                     stars.changeActiveStars(1);
                 }
                 else
                 {
                     Debug.Log("the speed was UNACCEPTABLE!!! this wave");
+                    GetComponent<AudioSource>().PlayOneShot(boo, 0.5f);
                     stars.changeActiveStars(-1);
                 }
                 Array.Clear(backdropSpeeds, 0, backdropSpeeds.Length);
