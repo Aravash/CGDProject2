@@ -85,12 +85,15 @@ public class Hand : MonoBehaviour
         gameObject.GetComponent<Rigidbody2D>().velocity += acceleration;
 
         // TODO: Update the IK to match new position
-	if(isLeashed){
-        // Leash Target back to hand
-	var delta = transform.position-leash.position;
-	if(delta.magnitude > MX_DIST_TO_HAND)
-	{transform.position = leash.position + delta.normalized * MX_DIST_TO_HAND + new Vector3(0,0,-1);}
-	}
+	    if(isLeashed)
+        {
+            // Leash Target back to hand
+            var delta = transform.position - leash.position;
+            if (delta.magnitude > MX_DIST_TO_HAND)
+            {
+                transform.position = leash.position + delta.normalized * MX_DIST_TO_HAND + new Vector3(0, 0, 0);
+            }
+        }
 
     }
 
@@ -134,6 +137,7 @@ public class Hand : MonoBehaviour
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, lm))
         {
             grabbed_something = true;
+            GetComponent<AudioSource>().Play();
             GameObject other = hit.transform.gameObject;
             Debug.Log(other.gameObject.name);
             //if(other.GetComponent<Head>())

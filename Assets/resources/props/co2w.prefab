@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 518813589373868138}
   - component: {fileID: 1054849850377967428}
   - component: {fileID: 115752251638653278}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8205859895790813973}
   - component: {fileID: 5943840991459152078}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: New Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,10 +183,10 @@ GameObject:
   - component: {fileID: 7193038818146837808}
   - component: {fileID: 2200509858857606918}
   - component: {fileID: 5599453615920522239}
-  - component: {fileID: 2708589795906409373}
   - component: {fileID: 2896762844195461769}
   - component: {fileID: 1519696672737302038}
-  m_Layer: 0
+  - component: {fileID: 4811168802720555121}
+  m_Layer: 8
   m_Name: co2w
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -255,20 +255,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &2708589795906409373
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6163624043144156963}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_Mesh: {fileID: -8168585829983048746, guid: 6923eb64078a76645812fc7e1ca4ae46, type: 3}
 --- !u!114 &2896762844195461769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -297,3 +283,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!65 &4811168802720555121
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6163624043144156963}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0013730143, y: 0.0010637919, z: 0.000100017394}
+  m_Center: {x: -0.00068580994, y: 0.0005289277, z: -0.000050008697}
