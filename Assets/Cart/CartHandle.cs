@@ -12,11 +12,13 @@ public class CartHandle : MonoBehaviour
     Transform hand_R;
     float old_rot;
     BackdropSlider backdrop;
+    Wheels wheels;
     
     void Start()
     {
         old_rot = transform.rotation.x;
         backdrop = FindObjectOfType<BackdropSlider>();
+	wheels = FindObjectOfType<Wheels>();
     }
 
     [SerializeField][Range(0.01f, 0.2f)]
@@ -52,6 +54,7 @@ public class CartHandle : MonoBehaviour
         // Control the background
         float delta = Mathf.Abs(transform.rotation.x - old_rot);
         backdrop.accelerate(delta);
+	wheels.accelerate(delta);
         old_rot = transform.rotation.x;
     }
 
