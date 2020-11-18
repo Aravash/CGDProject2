@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="25b6e037-17e6-4058-b868-40e1401667ee" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.CGDProject2/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CGDProject2/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.CGDProject2/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CGDProject2/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CGDProject2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CGDProject2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/Head.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Head.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/crowd/altcrowd/altCrowdManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/crowd/altcrowd/altCrowdManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/resources/props/co2w.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/resources/props/co2w.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +30,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Player/Head.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/HealthManager/HealthManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/props/Hazard/HazardMove.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Cart/CartHandle.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/resources/introCinematic/intro.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Cart/BackdropSlider.cs" root0="FORCE_HIGHLIGHTING" />
@@ -44,6 +51,7 @@
         <option value="$PROJECT_DIR$/Assets/menuscript/OutcomeManager.cs" />
         <option value="$PROJECT_DIR$/Assets/HealthManager/HealthManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/Head.cs" />
+        <option value="$PROJECT_DIR$/Assets/crowd/altcrowd/altCrowdManager.cs" />
       </list>
     </option>
   </component>
@@ -92,6 +100,8 @@
       <workItem from="1605368909376" duration="744000" />
       <workItem from="1605369701874" duration="1898000" />
       <workItem from="1605626337726" duration="64000" />
+      <workItem from="1605659670985" duration="582000" />
+      <workItem from="1605693208575" duration="557000" />
     </task>
     <servers />
   </component>

@@ -19,6 +19,9 @@
           <e p="CrowdManager.cs" t="Include" />
           <e p="CrowdMember.cs" t="Include" />
         </e>
+        <e p="HealthManager" t="Include">
+          <e p="HealthManager.cs" t="Include" />
+        </e>
         <e p="menuscript" t="Include">
           <e p="MenuManager.cs" t="Include" />
           <e p="OutcomeManager.cs" t="Include" />
@@ -27,6 +30,7 @@
         <e p="Player" t="Include">
           <e p="Hand.cs" t="Include" />
           <e p="Head.cs" t="Include" />
+          <e p="Leash.cs" t="Include" />
         </e>
         <e p="props" t="Include">
           <e p="Hazard" t="Include">
@@ -37,6 +41,9 @@
           <e p="PropSpawner.cs" t="Include" />
         </e>
         <e p="resources" t="Include">
+          <e p="introCinematic" t="Include">
+            <e p="intro.cs" t="Include" />
+          </e>
           <e p="LerpBack.cs" t="Include" />
           <e p="players" t="Include">
             <e p="SimpleIK.cs" t="Include" />
