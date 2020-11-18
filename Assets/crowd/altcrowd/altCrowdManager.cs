@@ -9,6 +9,7 @@ public class altCrowdManager : MonoBehaviour
     [SerializeField] private Vector2 crowdPresentDuration = new Vector2(5f, 10f);
     [SerializeField] private Vector2 crowdAbsentDuration = new Vector2(15f, 20f);
     [SerializeField] private float crowdMoveSpeed = 2f;
+    [SerializeField] private float warningTimer = 5f;
     private Transform[] crowdSprite = new Transform[2];
     [SerializeField] private float acceptableAverage = 0.00015f;
     private bool crowdAbsent = false;
@@ -33,7 +34,7 @@ public class altCrowdManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (timer <= 3 && timer > 0 && !crowdAbsent)
+        if (timer <= warningTimer && timer > 0 && !crowdAbsent)
         {
             stars.showWarning();
         }
@@ -99,7 +100,7 @@ public class altCrowdManager : MonoBehaviour
         }
         cumulative *= 1000; //prevent fucky business because speed is so low by default
         Debug.Log("average speed was " + cumulative / backdropSpeeds.Length + ", acceptable average is " + acceptableAverage);
-        return (cumulative / backdropSpeeds.Length > acceptableAverage);
+        return (cumulative/ backdropSpeeds.Length > acceptableAverage);
     }
 
     /*
