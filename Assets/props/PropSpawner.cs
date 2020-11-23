@@ -41,7 +41,7 @@ public class PropSpawner : MonoBehaviour
             float spawnPlaneFPos = spawnPlaneCol.bounds.min.z;
             float spawnPlaneBPos = spawnPlaneCol.bounds.max.z;
             Vector3 newPropPos = new Vector3(Random.Range(spawnPlaneLPos, spawnPlaneRPos),
-                                             transform.position.y + propHeightDelay,
+                                             transform.position.y,
                                              Random.Range(spawnPlaneFPos, spawnPlaneBPos));
 
             SpawnIncomingIndicator(newPropPos);
@@ -69,7 +69,8 @@ public class PropSpawner : MonoBehaviour
         if (currentSpawned <= maxSpawned)
         {
             newProp = Instantiate(Resources.Load("props/" + name)) as GameObject;
-            newProp.transform.position = newPropPos;
+            Vector3 uppedNewPropPos = new Vector3(newPropPos.x, newPropPos.y + propHeightDelay, newPropPos.z);
+            newProp.transform.position = uppedNewPropPos;
             currentSpawned++;
         }
     }
